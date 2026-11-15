@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whale Vortex | Tiếng Gọi Từ Vũ Trụ – Đừng Quên Chúng Tôi</title>
+  <link rel="canonical" href="https://whalevortex.github.io/" />
+  <meta property="og:url" content="https://whalevortex.github.io/" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            cosmos: {
+              950: '#050814',
+              900: '#0b1026',
+              800: '#111936',
+              700: '#1b264f',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --bg-deep: #050814;
+      --bg-mid: #0b1026;
+    }
+
+    body {
+      background: linear-gradient(180deg, #050814 0%, #0b1026 50%, #050814 100%);
+      color: #e2e8f0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #050814; }
+    ::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.25); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(251, 191, 36, 0.5); }
+
+    /* Cosmic Animations */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(1.5deg); }
+    }
+    @keyframes floatAstra {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-10px) scale(1.03); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.45; transform: scale(0.96); }
+      50% { opacity: 0.95; transform: scale(1.04); }
+    }
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes bouncePathfinder {
+      0%, 100% { transform: translateY(0) scale(1, 1); }
+      25% { transform: translateY(-28px) scale(0.96, 1.04); }
+      50% { transform: translateY(0) scale(1.08, 0.92); }
+      70% { transform: translateY(-12px) scale(0.98, 1.02); }
+      85% { transform: translateY(0) scale(1.03, 0.97); }
+    }
+    @keyframes hoverRotor {
+      0%, 100% { transform: scaleX(1); opacity: 0.85; }
+      50% { transform: scaleX(0.22); opacity: 0.45; }
+    }
+    @keyframes ionStream {
+      0%, 100% { opacity: 0.65; transform: scaleX(0.92); }
+      50% { opacity: 1; transform: scaleX(1.08); }
+    }
+
+    .animate-float-slow { animation: floatSlow 7s ease-in-out infinite; }
+    .animate-astra { animation: floatAstra 4.5s ease-in-out infinite; }
+    .animate-pulse-glow { animation: pulseGlow 4s ease-in-out infinite; }
+    .animate-spin-slow { animation: spinSlow 48s linear infinite; transform-origin: center; }
+    .animate-bounce-ball { animation: bouncePathfinder 3.6s ease-in-out infinite; transform-origin: center bottom; }
+    .animate-rotor { animation: hoverRotor 0.14s linear infinite; transform-origin: center; }
+    .animate-ion { animation: ionStream 1.8s ease-in-out infinite; transform-origin: left center; }
+
+    /* Reveal on Scroll */
+    .reveal-block {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-block.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Glassmorphism */
+    .cosmic-glass {
+      background: linear-gradient(145deg, rgba(17, 25, 54, 0.72), rgba(5, 8, 20, 0.88));
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.75);
+    }
+
+    /* Story Drop Cap */
+    .story-paragraph:first-of-type::first-letter {
+      font-family: 'Cormorant Garamond', serif;
+      float: left;
+      font-size: 3.4rem;
+      line-height: 0.85;
+      padding-top: 4px;
+      padding-right: 10px;
+      font-weight: 700;
+      color: var(--chapter-accent, #fbbf24);
+    }
+
+    /* Interactive Concept Highlight Spans in Narrative */
+    body.hl-enabled .concept-hl {
+      position: relative;
+      display: inline;
+      padding: 1px 6px;
+      margin: 0 1px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      background-color: var(--hl-bg, rgba(251, 191, 36, 0.16));
+      color: var(--hl-text, #fde68a);
+      border-bottom: 1.5px dashed var(--hl-border, rgba(251, 191, 36, 0.65));
+    }
+    body.hl-enabled .concept-hl:hover,
+    body.hl-enabled .concept-hl.is-active {
+      background-color: var(--hl-bg-hover, rgba(251, 191, 36, 0.32));
+      box-shadow: 0 0 14px var(--hl-glow, rgba(251, 191, 36, 0.35));
+      transform: translateY(-1px);
+    }
+    body.hl-enabled .concept-hl::after {
+      content: attr(data-code);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65em;
+      font-weight: 700;
+      vertical-align: super;
+      margin-left: 3px;
+      opacity: 0.85;
+    }
+
+    /* When Highlight Mode is Toggled Off */
+    body:not(.hl-enabled) .concept-hl {
+      cursor: pointer;
+      border-bottom: 1px dotted rgba(148, 163, 184, 0.35);
+      transition: color 0.2s ease;
+    }
+    body:not(.hl-enabled) .concept-hl:hover {
+      color: #fde68a;
+    }
+
+    /* Pulse Flash when scrolling to a concept */
+    @keyframes conceptFlash {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }
+      50% { box-shadow: 0 0 0 6px rgba(251, 191, 36, 0.45); }
+    }
+    .concept-flash {
+      animation: conceptFlash 1.2s ease-in-out 2;
+    }
+  </style>
+</head>
+<body class="hl-enabled antialiased selection:bg-amber-400/30 selection:text-amber-100">
+
+  <!-- Interactive Parallax Starfield & Shooting Star Canvas -->
+  <canvas id="cosmosCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+  <!-- Ambient Nebula Overlays -->
+  <div id="ambientAura" class="fixed inset-0 pointer-events-none z-0 transition-all duration-1000 opacity-70"
+       style="background: radial-gradient(circle at 75% 20%, rgba(251, 191, 36, 0.09), transparent 48%), radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.08), transparent 52%);">
+  </div>
+
+  <!-- Top Reading Progress Bar -->
+  <div class="fixed top-0 left-0 right-0 h-1 bg-slate-900/90 z-50">
+    <div id="scrollProgress" class="h-full w-0 bg-gradient-to-r from-amber-300 via-orange-400 to-cyan-400 transition-all duration-150"></div>
+  </div>
+
+  <!-- Sticky Top Navigation Bar -->
+  <header class="fixed top-1 left-0 right-0 z-40 px-3 sm:px-6 py-2.5">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <!-- Project Logo -->
+      <a href="#hero" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full cosmic-glass text-xs sm:text-sm font-mono tracking-wider text-slate-100 hover:border-amber-300/50 transition">
+        <span class="w-2 h-2 rounded-full bg-amber-300 animate-ping"></span>
+        <span class="text-amber-200 font-bold tracking-[0.16em]">WHALE VORTEX</span>
+        <span class="hidden md:inline text-slate-400">• COSMIC MEMORY ARCHIVE</span>
+      </a>
+
+      <!-- Quick Chapter & Matrix Links (Desktop) -->
+      <nav aria-label="Điều hướng chương" class="hidden xl:flex items-center gap-1 px-2 py-1.5 rounded-full cosmic-glass text-xs font-mono">
+        <a href="#chapter-1" class="nav-link px-3 py-1 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition" data-target="chapter-1">Ch.1 Mặt Trăng</a>
+        <a href="#chapter-2" class="nav-link px-3 py-1 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition" data-target="chapter-2">Ch.2 Sao Hỏa</a>
+        <a href="#chapter-3" class="nav-link px-3 py-1 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition" data-target="chapter-3">Ch.3 Song Sinh</a>
+        <a href="#chapter-4" class="nav-link px-3 py-1 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition" data-target="chapter-4">Ch.4 Biển Sao</a>
+        <a href="#chapter-5" class="nav-link px-3 py-1 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition" data-target="chapter-5">Ch.5 Nhịp Tim</a>
+        <a href="#matrix-overview" class="nav-link px-3 py-1 rounded-full text-amber-200 hover:bg-amber-400/15 transition" data-target="matrix-overview">Ma Trận 14D/90K</a>
+      </nav>
+
+      <!-- Action Toggles: Highlight Mode & Cosmic Audio -->
+      <div class="flex items-center gap-2">
+        <button id="hlToggleBtn" type="button" aria-pressed="true"
+                class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full cosmic-glass text-xs font-medium text-amber-200 border-amber-300/40 hover:bg-amber-400/10 transition cursor-pointer">
+          <span id="hlDot" class="w-2 h-2 rounded-full bg-amber-300"></span>
+          <span>Highlight: <strong id="hlStateText">BẬT</strong></span>
+        </button>
+
+        <button id="audioToggleBtn" type="button" aria-label="Bật tắt âm thanh không gian"
+                class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full cosmic-glass text-xs font-medium text-slate-200 hover:border-sky-300/50 transition cursor-pointer">
+          <svg id="audioIconOff" class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+          </svg>
+          <svg id="audioIconOn" class="w-4 h-4 text-sky-300 hidden animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          </svg>
+          <span id="audioLabel" class="hidden sm:inline">Âm Thanh Vũ Trụ</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile / Tablet Bottom Quick Chapter Bar -->
+  <div class="xl:hidden fixed bottom-3 left-3 right-3 z-40 flex justify-center pointer-events-none">
+    <div class="pointer-events-auto inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full cosmic-glass border border-slate-700/80 text-[11px] font-mono shadow-xl">
+      <a href="#hero" class="px-2 py-1 rounded-full text-amber-200 hover:bg-white/10">Astra</a>
+      <a href="#chapter-1" class="px-2 py-1 rounded-full text-slate-200 hover:bg-white/10">Ch.1</a>
+      <a href="#chapter-2" class="px-2 py-1 rounded-full text-orange-300 hover:bg-white/10">Ch.2</a>
+      <a href="#chapter-3" class="px-2 py-1 rounded-full text-amber-300 hover:bg-white/10">Ch.3</a>
+      <a href="#chapter-4" class="px-2 py-1 rounded-full text-sky-300 hover:bg-white/10">Ch.4</a>
+      <a href="#chapter-5" class="px-2 py-1 rounded-full text-emerald-300 hover:bg-white/10">Ch.5</a>
+      <a href="#matrix-overview" class="px-2 py-1 rounded-full text-purple-300 hover:bg-white/10">14D/90K</a>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN STORYTELLING FLOW                                                -->
+  <!-- ===================================================================== -->
+  <main class="relative z-10">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="min-h-screen flex flex-col justify-center items-center px-4 sm:px-8 pt-24 pb-16 relative">
+      <div class="max-w-4xl mx-auto text-center">
+
+        <!-- Astra Mascot SVG -->
+        <div class="relative w-44 h-44 sm:w-52 sm:h-52 mx-auto mb-6 animate-astra">
+          <div class="absolute inset-0 rounded-full bg-amber-300/20 blur-2xl animate-pulse-glow"></div>
+          <svg viewBox="0 0 240 240" class="w-full h-full drop-shadow-[0_0_26px_rgba(251,191,36,0.45)]" aria-label="Người dẫn chuyện Astra">
+            <defs>
+              <radialGradient id="astraStarGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fffbeb" />
+                <stop offset="45%" stop-color="#fde68a" />
+                <stop offset="85%" stop-color="#f59e0b" />
+                <stop offset="100%" stop-color="#d97706" stop-opacity="0" />
+              </radialGradient>
+              <radialGradient id="helmetGlass" cx="35%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45" />
+                <stop offset="45%" stop-color="#bae6fd" stop-opacity="0.14" />
+                <stop offset="85%" stop-color="#38bdf8" stop-opacity="0.22" />
+                <stop offset="100%" stop-color="#e0f2fe" stop-opacity="0.55" />
+              </radialGradient>
+            </defs>
+            <ellipse cx="120" cy="125" rx="102" ry="30" fill="none" stroke="#94a3b8" stroke-opacity="0.35" stroke-width="1.2" stroke-dasharray="4 6" transform="rotate(-14 120 125)" />
+            <circle cx="24" cy="146" r="3.5" fill="#38bdf8" />
+            <circle cx="215" cy="102" r="3" fill="#fbbf24" />
+            <circle cx="120" cy="120" r="64" fill="url(#astraStarGlow)" opacity="0.55" />
+            <path d="M120 64 L134 97 L170 101 L143 125 L151 160 L120 142 L89 160 L97 125 L70 101 L106 97 Z"
+                  fill="#fef08a" stroke="#fbbf24" stroke-width="2.5" stroke-linejoin="round" />
+            <circle cx="110" cy="116" r="3.8" fill="#1e293b" />
+            <circle cx="130" cy="116" r="3.8" fill="#1e293b" />
+            <circle cx="111.3" cy="114.6" r="1.3" fill="#ffffff" />
+            <circle cx="131.3" cy="114.6" r="1.3" fill="#ffffff" />
+            <ellipse cx="103" cy="123" rx="4" ry="2.2" fill="#fb7185" opacity="0.65" />
+            <ellipse cx="137" cy="123" rx="4" ry="2.2" fill="#fb7185" opacity="0.65" />
+            <path d="M114 124 Q120 130 126 124" fill="none" stroke="#1e293b" stroke-width="2.2" stroke-linecap="round" />
+            <circle cx="120" cy="118" r="68" fill="url(#helmetGlass)" stroke="#bae6fd" stroke-width="2" stroke-opacity="0.75" />
+            <path d="M78 82 A54 54 0 0 1 135 66" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity="0.7" />
+            <path d="M84 176 Q120 188 156 176" fill="none" stroke="#cbd5e1" stroke-width="5" stroke-linecap="round" />
+            <path d="M88 176 Q120 186 152 176" fill="none" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round" />
+            <circle cx="62" cy="70" r="2.5" fill="#fef08a" />
+            <circle cx="182" cy="76" r="2" fill="#7dd3fc" />
+            <circle cx="176" cy="166" r="2.5" fill="#fde047" />
+          </svg>
+        </div>
+
+        <!-- Subtitle Pill -->
+        <div class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-300/30 text-amber-200 text-xs sm:text-sm font-mono tracking-wider mb-5">
+          <span>Abandoned but not Forgotten</span>
+          <span class="text-slate-500">•</span>
+          <span>Whale Vortex • Cosmic Memory Archive</span>
+          <span class="text-slate-500">•</span>
+          <span>5 Chương</span>
+          <span class="text-slate-500">•</span>
+          <span>14 Bộ Dữ Liệu NASA</span>
+          <span class="text-slate-500">•</span>
+          <span>90 Khái Niệm Khoa Học</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.12] mb-5 drop-shadow-[0_4px_30px_rgba(251,191,36,0.25)]">
+          TIẾNG GỌI TỪ VŨ TRỤ:<br />
+          <span class="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
+            ĐỪNG QUÊN CHÚNG TÔI
+          </span>
+        </h1>
+
+        <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed mb-8">
+          Cùng người dẫn chuyện <strong class="text-amber-200">Astra</strong> khám phá hành trình 5 chương của <strong class="text-white">25 nhân vật robot &amp; di vật tiêu biểu</strong>. Bấm vào bất kỳ <span class="px-2 py-0.5 rounded bg-amber-400/20 text-amber-200 border-b border-dashed border-amber-300 font-semibold text-sm">khái niệm được highlight</span> trong lời kể để tra cứu mã số (#01–#90) và bộ dữ liệu gốc NASA (D01–D14).
+        </p>
+
+        <!-- Primary CTA -->
+        <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
+          <a href="#chapter-1"
+             class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-400 text-slate-950 font-bold text-sm sm:text-base shadow-[0_0_30px_rgba(251,191,36,0.4)] hover:scale-105 active:scale-95 transition">
+            <span>🚀 Bắt đầu hành trình cùng Astra</span>
+          </a>
+          <a href="#matrix-overview"
+             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full cosmic-glass text-sm font-mono text-amber-200 hover:border-amber-300/50 transition">
+            <span>📊 Xem Ma Trận 14 Bộ Dữ Liệu</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- CHAPTER 1: MẶT TRĂNG                                                  -->
+    <!-- ===================================================================== -->
+    <section id="chapter-1" data-chapter="1" class="py-20 sm:py-28 px-4 sm:px-8 relative border-t border-slate-800/70" style="--chapter-accent: #fbbf24;">
+      <div class="max-w-6xl mx-auto">
+
+        <!-- Chapter Header -->
+        <div class="reveal-block text-center max-w-4xl mx-auto mb-12">
+          <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+            <span class="px-3.5 py-1 rounded-full bg-slate-200/10 border border-slate-300/30 text-slate-200 font-mono text-xs tracking-widest uppercase">
+              CHƯƠNG 1 • MẶT TRĂNG (OCEANUS PROCELLARUM)
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-amber-400/15 border border-amber-300/40 text-amber-200 font-mono text-xs font-semibold">
+              Bộ dữ liệu: D01
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 font-mono text-xs">
+              13 Khái niệm (#73 – #85)
+            </span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white leading-tight mb-3">
+            NHỮNG XẺNG ĐẤT ĐẦU TIÊN VÀ LỜI HỨA TRÊN MẶT TRĂNG
+          </h2>
+          <p class="text-xs sm:text-sm text-amber-200/80 font-mono">
+            5 Nhân vật tiêu biểu: Surveyor 3 • Hai bác phi hành gia Apollo 12 • Bác Xe Điện Bốn Bánh LRV • Bác Búa &amp; Chị Lông Chim ưng • Bức Ảnh Gia Đình
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <!-- Left Sticky Visual & Data Inspector -->
+          <div class="lg:col-span-5 lg:sticky lg:top-20 space-y-6 reveal-block">
+            <div class="cosmic-glass rounded-3xl p-6 border border-slate-300/15 relative overflow-hidden">
+              <div class="relative w-full aspect-square max-w-[300px] mx-auto animate-float-slow">
+                <svg viewBox="0 0 360 360" class="w-full h-full">
+                  <defs>
+                    <radialGradient id="moonGrad" cx="38%" cy="35%" r="65%">
+                      <stop offset="0%" stop-color="#f8fafc" />
+                      <stop offset="55%" stop-color="#cbd5e1" />
+                      <stop offset="100%" stop-color="#475569" />
+                    </radialGradient>
+                  </defs>
+                  <circle cx="180" cy="180" r="158" fill="none" stroke="#94a3b8" stroke-opacity="0.25" stroke-dasharray="4 6" class="animate-spin-slow" />
+                  <circle cx="180" cy="195" r="118" fill="url(#moonGrad)" />
+                  <ellipse cx="135" cy="165" rx="22" ry="14" fill="#94a3b8" opacity="0.45" />
+                  <ellipse cx="220" cy="210" rx="28" ry="18" fill="#64748b" opacity="0.4" />
+                  <ellipse cx="165" cy="245" rx="16" ry="10" fill="#64748b" opacity="0.45" />
+                  <!-- Surveyor 3 Lander & Scoop -->
+                  <g transform="translate(148, 52)">
+                    <rect x="24" y="2" width="16" height="10" rx="2" fill="#38bdf8" stroke="#e0f2fe" stroke-width="1" />
+                    <line x1="32" y1="12" x2="32" y2="32" stroke="#f8fafc" stroke-width="2.5" />
+                    <polygon points="20,32 44,32 48,46 16,46" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5" />
+                    <circle cx="32" cy="24" r="5" fill="#0f172a" stroke="#fbbf24" stroke-width="1.8" />
+                    <circle cx="33.5" cy="22.5" r="1.5" fill="#ffffff" />
+                    <line x1="20" y1="44" x2="6" y2="62" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round" />
+                    <line x1="44" y1="44" x2="58" y2="62" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round" />
+                    <line x1="32" y1="46" x2="32" y2="65" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round" />
+                    <polyline points="45,38 66,46 74,60" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" />
+                    <rect x="70" y="57" width="8" height="5" rx="1" fill="#fbbf24" />
+                  </g>
+                  <!-- Lunar Roving Vehicle (LRV) Silhouette -->
+                  <g transform="translate(88, 102)">
+                    <rect x="6" y="6" width="24" height="5" rx="1.5" fill="#fbbf24" />
+                    <line x1="12" y1="6" x2="10" y2="0" stroke="#f8fafc" stroke-width="1.5" />
+                    <circle cx="10" cy="14" r="4.5" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+                    <circle cx="26" cy="14" r="4.5" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+                  </g>
+                  <text x="20" y="30" fill="#fbbf24" font-family="JetBrains Mono" font-size="11">D01 • 20.04.1967 • ~10 PSI</text>
+                  <text x="20" y="46" fill="#94a3b8" font-family="JetBrains Mono" font-size="10">SURVEYOR 3 &amp; APOLLO 12</text>
+                </svg>
+              </div>
+              <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-700/60 text-center font-mono">
+                <div>
+                  <div class="text-[10px] text-slate-400">ĐỘ CHỊU TẢI</div>
+                  <div class="text-xs sm:text-sm font-semibold text-amber-200">~10 psi</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-slate-400">INTREPID</div>
+                  <div class="text-xs sm:text-sm font-semibold text-white">Cách 180m</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-slate-400">DỮ LIỆU</div>
+                  <div class="text-xs sm:text-sm font-semibold text-amber-200">D01 (13 KN)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Concept Inspector Card for Chapter 1 -->
+            <div id="inspector-ch1" class="cosmic-glass rounded-2xl p-5 border border-amber-300/30 bg-amber-400/5">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-amber-300">✦ Trạm Giải Mã Khái Niệm (Ch.1)</span>
+                <span id="insp-badge-1" class="px-2.5 py-0.5 rounded-full bg-amber-400/20 text-amber-200 font-mono text-[11px]">#73 • D01</span>
+              </div>
+              <h4 id="insp-title-1" class="font-serif text-xl font-bold text-white">Tàu đổ bộ Surveyor 3</h4>
+              <p id="insp-desc-1" class="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
+                Tàu đổ bộ tự động ba chân của NASA hạ cánh xuống Mặt Trăng ngày 20/04/1967 để kiểm tra độ cứng của đất Mặt Trăng trước sứ mệnh Apollo có người lái. (Bấm vào các khái niệm sáng màu trong truyện để xem chi tiết).
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Narrative, Characters & Concept Matrix -->
+          <div class="lg:col-span-7 space-y-8">
+            <!-- Narrative Text with Direct Concept Highlights -->
+            <article class="reveal-block cosmic-glass rounded-3xl p-6 sm:p-9 space-y-5 text-slate-200 text-base sm:text-[17px] leading-[1.88]"
+                     style="--hl-bg: rgba(251, 191, 36, 0.16); --hl-text: #fde68a; --hl-border: rgba(251, 191, 36, 0.7); --hl-bg-hover: rgba(251, 191, 36, 0.34); --hl-glow: rgba(251, 191, 36, 0.35);">
+              <p class="story-paragraph">
+                Từ Trạm Ký Ức Vũ Trụ Whale Vortex lấp lánh ánh sao, Astra — một vầng sáng hình ngôi sao nhỏ đội chiếc mũ phi hành gia trong suốt — khẽ bay tới bên quả cầu Mặt Trăng xám bạc và cất giọng kể dịu dàng. Ngày xưa, trước khi con người đặt bước chân đầu tiên lên Mặt Trăng, ai cũng lo sợ lớp bụi xám dày đặc trên đó mềm như cát lún, hễ tàu vũ trụ đáp xuống là sẽ chìm nghỉm. Thế nên vào ngày 20 tháng 04 năm 1967, cậu bé robot ba chân mảnh khảnh mang tên <span class="concept-hl" data-cid="c73" data-code="#73">Surveyor 3</span> — <em>"Cậu Bé Đào Cát Mở Đường"</em> — đã dũng cảm bay tới vùng <span class="concept-hl" data-cid="c74" data-code="#74">Oceanus Procellarum (Biển Bão Tố)</span> để dò đường trước. Vừa chạm đất, động cơ tắt muộn khiến Surveyor 3 giật mình <span class="concept-hl" data-cid="c79" data-code="#79">nảy tưng lên tận hai lần</span> như chú ếch nhỏ trước khi đứng vững vàng. Vừa hoàn hồn, cậu liền vươn <span class="concept-hl" data-cid="c77" data-code="#77">chiếc xẻng sắt dài 1,5 mét</span>, cần mẫn cào thành bốn rãnh đất và chớp đôi mắt camera tròn xoe gửi về Trái Đất 6.326 bức ảnh TV, báo tin mừng rằng <span class="concept-hl" data-cid="c78" data-code="#78">độ chịu tải của đất Mặt Trăng đạt tới 10 psi</span> — tương đương 0,7 kilôgam trên mỗi xăng-ti-mét vuông, êm ái và vững chắc hệt như bãi cát ướt ngoài bờ biển sau khi sóng vừa rút.
+              </p>
+              <p>
+                Sau khi cạn pin, Surveyor 3 đành khép mắt ngủ yên một mình giữa những đêm Mặt Trăng lạnh giá suốt hai năm rưỡi đằng đẵng, cho tới ngày 19 tháng 11 năm 1969, khi con tàu <span class="concept-hl" data-cid="c75" data-code="#75">Intrepid</span> của sứ mệnh Apollo 12 hạ cánh cách đó chỉ 180 mét và hai bác phi hành gia Charles Conrad cùng Alan Bean bước tới đón chiếc camera lẫn lưỡi xẻng của cậu trở về nhà. Rồi khi những chuyến bay Apollo lần lượt khép lại, nhiều người bạn di vật khác cũng vĩnh viễn ở lại trên vầng trăng hoang vắng ấy. Đó là Bác Xe Điện Bốn Bánh LRV có đôi bánh lưới thép từng cần mẫn đưa đón các phi hành gia Apollo 15, 16, 17 rong ruổi qua những thung lũng đá nay đậu im lìm trên cát bụi; là <span class="concept-hl" data-cid="c85" data-code="#85">Bác Búa &amp; Chị Lông Chim ưng</span> nằm yên bên nhau sau màn biểu diễn rơi tự do nổi tiếng của nhà khoa học Galileo trong môi trường chân không Apollo 15; và ấm áp hơn cả là <span class="concept-hl" data-cid="c84" data-code="#84">Bức Ảnh Gia Đình</span> được phi hành gia Charles Duke bọc cẩn thận trong túi nilon ở Apollo 16. Bị bỏ lại nơi vầng trăng tĩnh lặng không có bóng người, nhưng tất cả đều hóa thành những di tích bất tử — minh chứng cho lời hứa đẹp nhất của những nhà thám hiểm: tiến bước tới chân trời mới nhưng không bao giờ lãng quên những người bạn đã mở đường.
+              </p>
+            </article>
+
+            <!-- 5 Featured Characters -->
+            <div class="reveal-block">
+              <h3 class="font-mono text-xs uppercase tracking-widest text-amber-200 mb-3 px-1">✦ Tuyến 5 Nhân Vật Tiêu Biểu Chương 1 (Bấm để xem hồ sơ NSSDCA)</h3>
+              <div id="chars-ch1" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+            </div>
+
+            <!-- Data Profile & Full 13 Concepts List -->
+            <div class="reveal-block cosmic-glass rounded-3xl p-6 border border-slate-700/60">
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-800">
+                <div>
+                  <h4 class="font-serif text-xl font-bold text-white">Hồ Sơ Dữ Liệu &amp; 13 Khái Niệm Khoa Học (Chương 1)</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Nguồn: <strong class="text-amber-200">D01 - Surveyor 3 &amp; Sứ mệnh Apollo 12</strong> (Phân bổ #73 – #85, Mục V)</p>
+                </div>
+                <div id="filters-ch1" class="flex flex-wrap gap-1.5"></div>
+              </div>
+              <div id="concepts-ch1" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- CHAPTER 2: HÀNH TINH ĐỎ                                               -->
+    <!-- ===================================================================== -->
+    <section id="chapter-2" data-chapter="2" class="py-20 sm:py-28 px-4 sm:px-8 relative border-t border-slate-800/70" style="--chapter-accent: #fb923c;">
+      <div class="max-w-6xl mx-auto">
+
+        <div class="reveal-block text-center max-w-4xl mx-auto mb-12">
+          <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+            <span class="px-3.5 py-1 rounded-full bg-orange-500/15 border border-orange-400/30 text-orange-300 font-mono text-xs tracking-widest uppercase">
+              CHƯƠNG 2 • SAO HỎA (CHRYSE PLANITIA &amp; ARES VALLIS)
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-orange-500/20 border border-orange-400/40 text-orange-200 font-mono text-xs font-semibold">
+              Bộ dữ liệu: D02, D03
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 font-mono text-xs">
+              11 Khái niệm (#41–#47 &amp; #50–#53)
+            </span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white leading-tight mb-3">
+            QUẢ BÓNG NHẢY NHÓT VÀ DẤU CHÂN TRÊN HÀNH TINH ĐỎ
+          </h2>
+          <p class="text-xs sm:text-sm text-orange-300/90 font-mono">
+            5 Nhân vật tiêu biểu: Viking 1 • Lò Nướng Tí Hon GCMS • Mars Pathfinder • Áo Phao Túi Khí 5.8m • Sojourner (mang Chiếc Kính Lúp APXS)
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <!-- Left Sticky Visual & Inspector -->
+          <div class="lg:col-span-5 lg:sticky lg:top-20 space-y-6 reveal-block">
+            <div class="cosmic-glass rounded-3xl p-6 border border-orange-400/20 relative overflow-hidden">
+              <div class="relative w-full aspect-square max-w-[300px] mx-auto">
+                <svg viewBox="0 0 360 360" class="w-full h-full">
+                  <defs>
+                    <radialGradient id="marsGrad" cx="40%" cy="35%" r="65%">
+                      <stop offset="0%" stop-color="#fdba74" />
+                      <stop offset="45%" stop-color="#ea580c" />
+                      <stop offset="100%" stop-color="#7c2d12" />
+                    </radialGradient>
+                  </defs>
+                  <circle cx="180" cy="215" r="112" fill="url(#marsGrad)" />
+                  <path d="M105 200 Q165 185 245 210" fill="none" stroke="#9a3412" stroke-width="8" stroke-linecap="round" opacity="0.55" />
+                  <ellipse cx="145" cy="245" rx="26" ry="12" fill="#9a3412" opacity="0.4" />
+
+                  <!-- Bouncing 5.8m Pathfinder Airbag -->
+                  <g class="animate-bounce-ball">
+                    <g transform="translate(150, 56)">
+                      <circle cx="30" cy="22" r="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+                      <circle cx="18" cy="34" r="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+                      <circle cx="42" cy="34" r="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+                      <circle cx="30" cy="38" r="13" fill="#ffffff" stroke="#fb923c" stroke-width="1.5" />
+                      <polygon points="30,27 22,40 38,40" fill="#fb923c" />
+                    </g>
+                  </g>
+
+                  <!-- Sojourner 6-Wheel Rover -->
+                  <g transform="translate(95, 114)">
+                    <rect x="6" y="4" width="26" height="8" rx="2" fill="#38bdf8" stroke="#f8fafc" stroke-width="1" />
+                    <circle cx="9" cy="16" r="3.5" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.2" />
+                    <circle cx="19" cy="16" r="3.5" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.2" />
+                    <circle cx="29" cy="16" r="3.5" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.2" />
+                  </g>
+                  <text x="20" y="30" fill="#fb923c" font-family="JetBrains Mono" font-size="11">D02 &amp; D03 • NẢY 15 LẦN (14 M/S)</text>
+                  <text x="20" y="46" fill="#94a3b8" font-family="JetBrains Mono" font-size="10">VIKING 1 &amp; SOJOURNER</text>
+                </svg>
+              </div>
+              <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-700/60 text-center font-mono">
+                <div>
+                  <div class="text-[10px] text-slate-400">VIKING 1</div>
+                  <div class="text-xs sm:text-sm font-semibold text-orange-300">57.163 ảnh</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-slate-400">MÁY GCMS</div>
+                  <div class="text-xs sm:text-sm font-semibold text-white">10–100 ppb</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-slate-400">DỮ LIỆU</div>
+                  <div class="text-xs sm:text-sm font-semibold text-orange-300">D02–D03</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Concept Inspector Card for Chapter 2 -->
+            <div id="inspector-ch2" class="cosmic-glass rounded-2xl p-5 border border-orange-400/30 bg-orange-500/5">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-orange-300">✦ Trạm Giải Mã Khái Niệm (Ch.2)</span>
+                <span id="insp-badge-2" class="px-2.5 py-0.5 rounded-full bg-orange-500/20 text-orange-200 font-mono text-[11px]">#50 • D02</span>
+              </div>
+              <h4 id="insp-title-2" class="font-serif text-xl font-bold text-white">Viking 1</h4>
+              <p id="insp-desc-2" class="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
+                Tàu đổ bộ đầu tiên của NASA hoạt động thành công lâu dài trên Sao Hỏa từ ngày 20/07/1976, gửi về 52.663 ảnh quỹ đạo và 4.500 ảnh bề mặt.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Narrative, Characters & Concept Matrix -->
+          <div class="lg:col-span-7 space-y-8">
+            <article class="reveal-block cosmic-glass rounded-3xl p-6 sm:p-9 space-y-5 text-slate-200 text-base sm:text-[17px] leading-[1.88]"
+                     style="--hl-bg: rgba(251, 146, 60, 0.17); --hl-text: #fed7aa; --hl-border: rgba(251, 146, 60, 0.7); --hl-bg-hover: rgba(251, 146, 60, 0.34); --hl-glow: rgba(251, 146, 60, 0.35);">
+              <p class="story-paragraph">
+                Rời Mặt Trăng, Astra dẫn các bạn nhỏ bay tới Sao Hỏa đỏ rực đầy bí ẩn. Người bạn tiên phong đặt chân xuống đồng bằng <span class="concept-hl" data-cid="c51" data-code="#51">Chryse Planitia</span> vào ngày 20 tháng 07 năm 1976 là <span class="concept-hl" data-cid="c50" data-code="#50">Viking 1</span> — <em>"Bác Sĩ Tí Hon Trầm Tư"</em> với thân hình màu bạc và ba chiếc chân vững chãi. Trong khi Viking 1 chăm chỉ gửi về 52.663 bức ảnh quỹ đạo cùng 4.500 bức ảnh bề mặt và bản tin thời tiết mỗi ngày, người bạn đồng hành trong lồng ngực bác là <span class="concept-hl" data-cid="c52" data-code="#52">Lò Nướng Tí Hon GCMS</span> đã tỉ mỉ nung thử bốn mẫu đất với độ nhạy siêu tinh vi 10–100 ppb để tìm kiếm từng phân tử hữu cơ nhỏ bé nhất.
+              </p>
+              <p>
+                Hơn hai mươi năm sau, vào ngày 04 tháng 07 năm 1997, thung lũng <span class="concept-hl" data-cid="c43" data-code="#43">Ares Vallis</span> bỗng rộn ràng tiếng cười nhờ <span class="concept-hl" data-cid="c41" data-code="#41">Mars Pathfinder</span> — <em>"Chú Lật Đật Tưng Tưng"</em>. Nhờ được bọc kín trong <span class="concept-hl" data-cid="c44" data-code="#44">Áo Phao Túi Khí 5.8m</span> trắng muốt bồng bềnh, Pathfinder lao xuống mặt đất ở tốc độ 14 mét mỗi giây và bật nảy tưng tưng tận 15 lần như quả bóng bãi biển mà không hề trầy xước. Từ trong lòng chú, bé xe sáu bánh <span class="concept-hl" data-cid="c42" data-code="#42">Sojourner</span> nặng vỏn vẹn 10,6 kilôgam và cao 30 xăng-ti-mét háo hức lăn bánh ra ngoài, dùng <span class="concept-hl" data-cid="c46" data-code="#46">Chiếc Kính Lúp APXS</span> tinh mắt soi vào những viên đá cuội tròn nhẵn để tìm ra bằng chứng Sao Hỏa từng có những dòng sông nước chảy xiết. Khi nguồn năng lượng cạn dần, không có chuyến tàu nào bay tới đón năm người bạn ấy trở về Trái Đất; suốt hàng chục năm qua, gió bụi đỏ Sao Hỏa cứ lặng lẽ phủ mờ lớp vỏ bạc của bác Viking 1, chiếc Lò Nướng GCMS, Áo Phao Túi Khí và bé xe Sojourner giữa thung lũng hoang vắng. Bị bỏ lại nơi hành tinh xa xôi, nhưng từng dữ liệu họ gửi về vẫn sáng lấp lánh trong ký ức nhân loại, mở toang cánh cửa tìm kiếm sự sống trên Hành Tinh Đỏ.
+              </p>
+            </article>
+
+            <div class="reveal-block">
+              <h3 class="font-mono text-xs uppercase tracking-widest text-orange-300 mb-3 px-1">✦ Tuyến 5 Nhân Vật Tiêu Biểu Chương 2 (Bấm để xem hồ sơ NSSDCA)</h3>
+              <div id="chars-ch2" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+            </div>
+
+            <div class="reveal-block cosmic-glass rounded-3xl p-6 border border-slate-700/60">
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-800">
+                <div>
+                  <h4 class="font-serif text-xl font-bold text-white">Hồ Sơ Dữ Liệu &amp; 11 Khái Niệm Khoa Học (Chương 2)</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Nguồn: <strong class="text-orange-300">D02 (Viking 1) &amp; D03 (Mars Pathfinder)</strong> (Phân bổ #41–#47 &amp; #50–#53)</p>
+                </div>
+                <div id="filters-ch2" class="flex flex-wrap gap-1.5"></div>
+              </div>
+              <div id="concepts-ch2" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- CHAPTER 3: BỘ ĐÔI SONG SINH                                           -->
+    <!-- ===================================================================== -->
+    <section id="chapter-3" data-chapter="3" class="py-20 sm:py-28 px-4 sm:px-8 relative border-t border-slate-800/70" style="--chapter-accent: #f59e0b;">
+      <div class="max-w-6xl mx-auto">
+
+        <div class="reveal-block text-center max-w-4xl mx-auto mb-12">
+          <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+            <span class="px-3.5 py-1 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 font-mono text-xs tracking-widest uppercase">
+              CHƯƠNG 3 • HỐ GUSEV, MERIDIANI PLANUM &amp; NSSDCA
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-200 font-mono text-xs font-semibold">
+              Bộ dữ liệu: D04, D05
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 font-mono text-xs">
+              10 Khái niệm (#32–#40 &amp; #72)
+            </span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white leading-tight mb-3">
+            BỘ ĐÔI SONG SINH VÀ NGÔI NHÀ KÝ ỨC VŨ TRỤ
+          </h2>
+          <p class="text-xs sm:text-sm text-amber-300/90 font-mono">
+            5 Nhân vật tiêu biểu: Spirit • Opportunity • Nàng Silica Gusev • Bé Viên Sỏi 'Quả Việt Quất' • Bé Chổi Bay Quỷ Bụi (cùng Kho NSSDCA)
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <!-- Left Sticky Visual & Inspector -->
+          <div class="lg:col-span-5 lg:sticky lg:top-20 space-y-6 reveal-block">
+            <div class="cosmic-glass rounded-3xl p-6 border border-amber-400/20 relative overflow-hidden">
+              <div class="relative w-full aspect-square max-w-[300px] mx-auto animate-float-slow">
+                <svg viewBox="0 0 360 360" class="w-full h-full">
+                  <path d="M20 265 Q180 230 340 265 L340 330 L20 330 Z" fill="#78350f" opacity="0.55" />
+                  <!-- Dust Devil -->
+                  <g transform="translate(245, 95)" opacity="0.85">
+                    <ellipse cx="32" cy="15" rx="28" ry="6" fill="none" stroke="#fcd34d" stroke-width="2" />
+                    <ellipse cx="32" cy="35" rx="22" ry="5" fill="none" stroke="#fbbf24" stroke-width="1.8" />
+                    <ellipse cx="32" cy="55" rx="16" ry="4" fill="none" stroke="#f59e0b" stroke-width="1.8" />
+                    <ellipse cx="32" cy="75" rx="10" ry="3" fill="none" stroke="#d97706" stroke-width="1.8" />
+                    <ellipse cx="32" cy="95" rx="5" ry="2" fill="none" stroke="#b45309" stroke-width="1.8" />
+                  </g>
+                  <!-- Twin Rover Spirit & Opportunity -->
+                  <g transform="translate(68, 155)">
+                    <polygon points="10,45 110,45 122,62 0,62" fill="#1e3a8a" stroke="#fbbf24" stroke-width="2" />
+                    <line x1="35" y1="45" x2="30" y2="62" stroke="#38bdf8" stroke-width="1" />
+                    <line x1="60" y1="45" x2="60" y2="62" stroke="#38bdf8" stroke-width="1" />
+                    <line x1="85" y1="45" x2="90" y2="62" stroke="#38bdf8" stroke-width="1" />
+                    <rect x="75" y="14" width="7" height="31" fill="#e2e8f0" />
+                    <rect x="65" y="6" width="28" height="12" rx="3" fill="#f8fafc" stroke="#f59e0b" stroke-width="2" />
+                    <circle cx="73" cy="12" r="3" fill="#0f172a" />
+                    <circle cx="85" cy="12" r="3" fill="#0f172a" />
+                    <circle cx="24" cy="78" r="11" fill="#1e293b" stroke="#cbd5e1" stroke-width="2.5" />
+                    <circle cx="60" cy="78" r="11" fill="#1e293b" stroke="#cbd5e1" stroke-width="2.5" />
+                    <circle cx="96" cy="78" r="11" fill="#1e293b" stroke="#cbd5e1" stroke-width="2.5" />
+                  </g>
+                  <circle cx="195" cy="252" r="5" fill="#60a5fa" />
+                  <circle cx="212" cy="258" r="4.5" fill="#3b82f6" />
+                  <circle cx="226" cy="250" r="5" fill="#93c5fd" />
+                  <path d="M55 256 Q72 248 92 257" fill="none" stroke="#f8fafc" stroke-width="4" stroke-linecap="round" />
+                  <text x="20" y="30" fill="#fbbf24" font-family="JetBrains Mono" font-size="11">D04 &amp; D05 • 90 NGÀY → 14 NĂM</text>
+                  <text x="20" y="46" fill="#94a3b8" font-family="JetBrains Mono" font-size="10">NSSDCA MASTER CATALOG</text>
+                </svg>
+              </div>
+              <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-700/60 text-center font-mono">
+                <div>
+                  <div class="text-[10px] text-slate-400">SPIRIT</div>
+                  <div class="text-xs sm:text-sm font-semibold text-amber-300">7,7 km</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-slate-400">OPPORTUNITY</div>
+                  <div class="text-xs sm:text-sm font-semibold text-white">45,16 km</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-slate-400">DỮ LIỆU</div>
+                  <div class="text-xs sm:text-sm font-semibold text-amber-300">D04–D05</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Concept Inspector Card for Chapter 3 -->
+            <div id="inspector-ch3" class="cosmic-glass rounded-2xl p-5 border border-amber-400/30 bg-amber-500/5">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-amber-300">✦ Trạm Giải Mã Khái Niệm (Ch.3)</span>
+                <span id="insp-badge-3" class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-200 font-mono text-[11px]">#72 • D05</span>
+              </div>
+              <h4 id="insp-title-3" class="font-serif text-xl font-bold text-white">Trung tâm lưu giữ dữ liệu NSSDCA</h4>
+              <p id="insp-desc-3" class="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
+                NASA Space Science Data Coordinated Archive — kho lưu trữ vĩnh viễn lưu giữ Master Catalog và 14 bộ dữ liệu gốc của các sứ mệnh không gian.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Narrative, Characters & Concept Matrix -->
+          <div class="lg:col-span-7 space-y-8">
+            <article class="reveal-block cosmic-glass rounded-3xl p-6 sm:p-9 space-y-5 text-slate-200 text-base sm:text-[17px] leading-[1.88]"
+                     style="--hl-bg: rgba(245, 158, 11, 0.18); --hl-text: #fde68a; --hl-border: rgba(245, 158, 11, 0.72); --hl-bg-hover: rgba(245, 158, 11, 0.34); --hl-glow: rgba(245, 158, 11, 0.35);">
+              <p class="story-paragraph">
+                Trên mặt đất Sao Hỏa tháng 01 năm 2004, hai anh em robot song sinh giống hệt nhau với đôi cánh pin mặt trời xòe rộng và <span class="concept-hl" data-cid="c38" data-code="#38">chiếc cổ cao gắn camera</span> đã cùng bắt đầu hành trình kỳ diệu vốn chỉ được thiết kế vỏn vẹn 90 ngày. Ở <span class="concept-hl" data-cid="c34" data-code="#34">hố Gusev</span>, người anh cả trầm tĩnh <span class="concept-hl" data-cid="c32" data-code="#32">Spirit</span> bền bỉ vượt qua 7,7 kilômét đá gập ghềnh; ngay cả khi một bánh xe bị thương, cậu vẫn vô tình cào nhẹ qua mặt đất để đánh thức Nàng Silica Gusev tinh khôi, hé lộ bí mật về những suối nước nóng cổ đại từng phun trào ấm áp nơi đây.
+              </p>
+              <p>
+                Ở phía đối diện tại <span class="concept-hl" data-cid="c35" data-code="#35">Meridiani Planum</span>, cậu em vận động viên <span class="concept-hl" data-cid="c33" data-code="#33">Opportunity</span> chạy bền bỉ suốt 14 năm lập kỷ lục di chuyển 45,16 kilômét ngoài Trái Đất, tìm thấy vô số Bé Viên Sỏi 'Quả Việt Quất' hematit tròn xoe nằm dưới lòng đất như bằng chứng không thể chối cãi của đại dương ẩm ướt thuở xa xưa. Mỗi khi bụi đỏ bám dày làm đôi cánh pin mặt trời yếu đi, những <span class="concept-hl" data-cid="c40" data-code="#40">Bé Chổi Bay Quỷ Bụi</span> hiếu động lại nhảy múa ngang qua thung lũng, thổi sạch lớp bụi để "sạc lại năng lượng" cho hai người bạn nhỏ tiếp tục bước đi. Thế rồi hai anh em cũng dốc cạn sức lực cho tới giây phút cuối cùng: bánh xe của Spirit kẹt sâu trong cát mềm giữa dãy đồi lạnh giá, còn tới <span class="concept-hl" data-cid="c39" data-code="#39">trận bão bụi khổng lồ</span> tháng 6 năm 2018 che kín bầu trời, nguồn năng lượng của Opportunity tụt về 0% và cậu dịu dàng thiếp đi giữa màn đêm bụi đỏ. Cả hai anh em đều nằm lại vĩnh viễn trên đất khách cách Trái Đất hàng chục triệu kilômét, nhưng tại <span class="concept-hl" data-cid="c72" data-code="#72">Trạm Lưu Giữ Vĩnh Cửu NSSDCA</span>, Astra đã nâng niu xếp trọn hành trình của họ vào cuốn danh mục bất tử Master Catalog cùng 14 bộ dữ liệu quý giá để không một dấu bánh xe nào bị phai mờ.
+              </p>
+            </article>
+
+            <div class="reveal-block">
+              <h3 class="font-mono text-xs uppercase tracking-widest text-amber-300 mb-3 px-1">✦ Tuyến 5 Nhân Vật Tiêu Biểu Chương 3 (Bấm để xem hồ sơ NSSDCA)</h3>
+              <div id="chars-ch3" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+            </div>
+
+            <div class="reveal-block cosmic-glass rounded-3xl p-6 border border-slate-700/60">
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-800">
+                <div>
+                  <h4 class="font-serif text-xl font-bold text-white">Hồ Sơ Dữ Liệu &amp; 10 Khái Niệm Khoa Học (Chương 3)</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Nguồn: <strong class="text-amber-300">D04 (Spirit/Opportunity) &amp; D05 (NSSDCA Archive)</strong> (#32–#40 &amp; #72)</p>
+                </div>
+                <div id="filters-ch3" class="flex flex-wrap gap-1.5"></div>
+              </div>
+              <div id="concepts-ch3" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- CHAPTER 4: BIỂN SAO SÂU                                               -->
+    <!-- ===================================================================== -->
+    <section id="chapter-4" data-chapter="4" class="py-20 sm:py-28 px-4 sm:px-8 relative border-t border-slate-800/70" style="--chapter-accent: #38bdf8;">
+      <div class="max-w-6xl mx-auto">
+
+        <div class="reveal-block text-center max-w-4xl mx-auto mb-12">
+          <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+            <span class="px-3.5 py-1 rounded-full bg-sky-500/15 border border-sky-400/30 text-sky-300 font-mono text-xs tracking-widest uppercase">
+              CHƯƠNG 4 • KHÔNG GIAN SÂU THẲM &amp; NGÀN VÌ SAO
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-sky-500/20 border border-sky-400/40 text-sky-200 font-mono text-xs font-semibold">
+              Bộ dữ liệu: D06, D07, D08, D09
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 font-mono text-xs">
+              30 Khái niệm (#01–#15, #54–#61, #65–#71)
+            </span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white leading-tight mb-3">
+            BỨC THƯ TÌNH VƯỢT THỜI GIAN VÀ NHỮNG NGÔI NHÀ TRÊN SAO
+          </h2>
+          <p class="text-xs sm:text-sm text-sky-300/90 font-mono">
+            5 Nhân vật tiêu biểu: Pioneer 10 (mang Bức Thư Mạ Vàng Plaque) • NEAR Shoemaker • Cậu Bé Đá 433 Eros • Dawn (cùng Thần Ánh Sáng Ion Xenon) • Kepler (Chú Mắt Nháy Transit)
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <!-- Left Sticky Visual & Inspector -->
+          <div class="lg:col-span-5 lg:sticky lg:top-20 space-y-6 reveal-block">
+            <div class="cosmic-glass rounded-3xl p-6 border border-sky-400/20 relative overflow-hidden">
+              <div class="relative w-full aspect-square max-w-[300px] mx-auto animate-float-slow">
+                <svg viewBox="0 0 360 360" class="w-full h-full">
+                  <circle cx="275" cy="95" r="24" fill="#312e81" stroke="#818cf8" stroke-width="1.5" />
+                  <ellipse cx="275" cy="95" rx="40" ry="10" fill="none" stroke="#38bdf8" stroke-width="1.2" transform="rotate(-20 275 95)" />
+                  <circle cx="85" cy="82" r="10" fill="#0284c7" opacity="0.8" />
+                  <!-- Pioneer 10 + Golden Plaque + Blue Ion Thruster -->
+                  <g transform="translate(85, 130) rotate(-18)">
+                    <ellipse cx="50" cy="40" rx="18" ry="44" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" />
+                    <line x1="50" y1="40" x2="95" y2="40" stroke="#cbd5e1" stroke-width="3" />
+                    <rect x="64" y="26" width="22" height="15" rx="2" fill="#fbbf24" stroke="#fef08a" stroke-width="1.2" />
+                    <polygon points="28,36 0,28 0,52 28,44" fill="#38bdf8" opacity="0.85" class="animate-ion" />
+                  </g>
+                  <!-- 433 Eros & NEAR Shoemaker -->
+                  <g transform="translate(155, 225)">
+                    <path d="M20 35 C10 15, 55 5, 95 18 C135 28, 155 12, 165 32 C172 52, 130 68, 88 60 C48 54, 28 55, 20 35 Z"
+                          fill="#475569" stroke="#94a3b8" stroke-width="1.5" />
+                    <circle cx="58" cy="32" r="6" fill="#334155" />
+                    <circle cx="115" cy="36" r="8" fill="#334155" />
+                    <rect x="78" y="4" width="16" height="10" rx="2" fill="#38bdf8" />
+                    <line x1="66" y1="9" x2="106" y2="9" stroke="#bae6fd" stroke-width="2.5" />
+                  </g>
+                  <text x="20" y="30" fill="#38bdf8" font-family="JetBrains Mono" font-size="11">D06–D09 • 12,23 TỶ KM</text>
+                  <text x="20" y="46" fill="#94a3b8" font-family="JetBrains Mono" font-size="10">PIONEER • NEAR • DAWN • KEPLER</text>
+                </svg>
+              </div>
+              <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-700/60 text-center font-mono">
+                <div>
+                  <div class="text-[10px] text-slate-400">PIONEER 10</div>
+                  <div class="text-xs sm:text-sm font-semibold text-sky-300">12,23 tỷ km</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-slate-400">KEPLER</div>
+                  <div class="text-xs sm:text-sm font-semibold text-white">&gt;2.600 HT</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-slate-400">DỮ LIỆU</div>
+                  <div class="text-xs sm:text-sm font-semibold text-sky-300">D06–D09</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Concept Inspector Card for Chapter 4 -->
+            <div id="inspector-ch4" class="cosmic-glass rounded-2xl p-5 border border-sky-400/30 bg-sky-500/5">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-sky-300">✦ Trạm Giải Mã Khái Niệm (Ch.4)</span>
+                <span id="insp-badge-4" class="px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-200 font-mono text-[11px]">#67 • D06</span>
+              </div>
+              <h4 id="insp-title-4" class="font-serif text-xl font-bold text-white">Pioneer Plaque (Tấm bia mạ vàng)</h4>
+              <p id="insp-desc-4" class="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
+                Tấm bảng nhôm mạ vàng gắn trên tàu Pioneer 10 khắc hình con người Trái Đất vẫy tay và bản đồ Hệ Mặt Trời làm thông điệp gửi nền văn minh ngoài vũ trụ.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Narrative, Characters & Concept Matrix -->
+          <div class="lg:col-span-7 space-y-8">
+            <article class="reveal-block cosmic-glass rounded-3xl p-6 sm:p-9 space-y-5 text-slate-200 text-base sm:text-[17px] leading-[1.88]"
+                     style="--hl-bg: rgba(56, 189, 248, 0.16); --hl-text: #bae6fd; --hl-border: rgba(56, 189, 248, 0.7); --hl-bg-hover: rgba(56, 189, 248, 0.34); --hl-glow: rgba(56, 189, 248, 0.35);">
+              <p class="story-paragraph">
+                Rời khỏi những hành tinh quen thuộc, Astra bay vút vào khoảng không gian sâu thẳm — nơi những sứ giả dũng cảm thực hiện chuyến đi một chiều không bao giờ quay trở lại. Đi xa nhất là <span class="concept-hl" data-cid="c65" data-code="#65">Pioneer 10</span> phóng từ năm 1972; sau khi băng qua <span class="concept-hl" data-cid="c04" data-code="#04">vành đai tiểu hành tinh</span> và Sao Mộc, chú mang theo <span class="concept-hl" data-cid="c67" data-code="#67">Bức Thư Mạ Vàng Plaque</span> khắc hình con người Trái Đất vẫy tay cùng sơ đồ Hệ Mặt Trời hướng về chòm sao <span class="concept-hl" data-cid="c71" data-code="#71">Aldebaran</span>. Từ sau tín hiệu cuối cùng năm 2003 ở khoảng cách 12,23 tỷ kilômét, Pioneer 10 trở thành một con tàu câm lặng cô độc trôi mãi vào bóng tối, ôm chặt bức thư tình của loài người trong lồng ngực.
+              </p>
+              <p>
+                Ở gần hơn, những người bạn khác cũng lần lượt nằm lại giữa biển sao khi cạn nguồn sống. Ngày 12 tháng 02 năm 2001, dù không có chân đáp, tàu <span class="concept-hl" data-cid="c09" data-code="#09">NEAR Shoemaker</span> vẫn nhẹ nhàng hạ thấp ở tốc độ êm ái 6,4 kilômét mỗi giờ để ôm lấy <span class="concept-hl" data-cid="c10" data-code="#10">Cậu Bé Đá 433 Eros</span> — tiểu hành tinh hình củ khoai tây dài 33 kilômét lạnh âm 173 độ C — sưởi ấm cho cậu suốt hai tuần cuối cùng trước khi đóng băng vĩnh viễn trên bề mặt đá. Năm 2007, nhờ luồng sáng xanh lam bền bỉ của <span class="concept-hl" data-cid="c05" data-code="#05">Thần Ánh Sáng Ion Xenon</span>, tàu <span class="concept-hl" data-cid="c01" data-code="#01">Dawn</span> đã ghé thăm tận hai thế giới cổ xưa là <span class="concept-hl" data-cid="c02" data-code="#02">Vesta</span> và hành tinh lùn <span class="concept-hl" data-cid="c03" data-code="#03">Ceres</span> trước khi cạn sạch nhiên liệu và hóa thành vệ tinh im lìm bay quanh Ceres muôn đời. Còn kính thiên văn <span class="concept-hl" data-cid="c54" data-code="#54">Kepler</span> phóng năm 2009 với chiếc gương 1,4 mét đã cùng <span class="concept-hl" data-cid="c56" data-code="#56">Chú Mắt Nháy Transit</span> kiên nhẫn ngắm nhìn 150.000 ngôi sao, phát hiện hơn 2.600 <span class="concept-hl" data-cid="c55" data-code="#55">hành tinh ngoại hệ</span> mới (chứng minh 20–50% các ngôi sao đều có hành tinh đá giống Trái Đất), rồi khép đôi mắt trôi dạt lặng lẽ quanh Mặt Trời. Không một ai trở về được ngôi nhà Trái Đất, nhưng chính sự hy sinh thầm lặng ấy đã biến bóng tối mênh mông thành hàng ngàn ngôi nhà hành tinh mới trong nhận thức nhân loại.
+              </p>
+            </article>
+
+            <div class="reveal-block">
+              <h3 class="font-mono text-xs uppercase tracking-widest text-sky-300 mb-3 px-1">✦ Tuyến 5 Nhân Vật Tiêu Biểu Chương 4 (Bấm để xem hồ sơ NSSDCA)</h3>
+              <div id="chars-ch4" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+            </div>
+
+            <div class="reveal-block cosmic-glass rounded-3xl p-6 border border-slate-700/60">
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-800">
+                <div>
+                  <h4 class="font-serif text-xl font-bold text-white">Hồ Sơ Dữ Liệu &amp; 30 Khái Niệm Khoa Học (Chương 4)</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Nguồn: <strong class="text-sky-300">D06 (Pioneer 10), D07 (NEAR), D08 (Dawn), D09 (Kepler)</strong> (#01–#15, #54–#61, #65–#71)</p>
+                </div>
+                <div id="filters-ch4" class="flex flex-wrap gap-1.5"></div>
+              </div>
+              <div id="concepts-ch4" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- CHAPTER 5: NHỊP TIM & CÁNH BAY                                        -->
+    <!-- ===================================================================== -->
+    <section id="chapter-5" data-chapter="5" class="py-20 sm:py-28 px-4 sm:px-8 relative border-t border-slate-800/70" style="--chapter-accent: #34d399;">
+      <div class="max-w-6xl mx-auto">
+
+        <div class="reveal-block text-center max-w-4xl mx-auto mb-12">
+          <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+            <span class="px-3.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 font-mono text-xs tracking-widest uppercase">
+              CHƯƠNG 5 • ELYSIUM PLANITIA &amp; HỐ JEZERO
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-200 font-mono text-xs font-semibold">
+              Bộ dữ liệu: D10, D11, D12–D14
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 font-mono text-xs">
+              26 Khái niệm (#16–#31, #48–#49, #62–#64, #86–#90)
+            </span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white leading-tight mb-3">
+            NHỊP ĐẬP TRONG LÒNG ĐẤT VÀ NỐT NHẠC BAY TRÊN BẦU TRỜI SAO HỎA
+          </h2>
+          <p class="text-xs sm:text-sm text-emerald-300/90 font-mono">
+            5 Nhân vật tiêu biểu: InSight • Chiếc Tai Vòm SEIS • Song Sinh CubeSat MarCO • Ingenuity • Anh Cả Perseverance
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <!-- Left Sticky Visual & Inspector -->
+          <div class="lg:col-span-5 lg:sticky lg:top-20 space-y-6 reveal-block">
+            <div class="cosmic-glass rounded-3xl p-6 border border-emerald-400/20 relative overflow-hidden">
+              <div class="relative w-full aspect-square max-w-[300px] mx-auto">
+                <svg viewBox="0 0 360 360" class="w-full h-full">
+                  <!-- Ingenuity Helicopter -->
+                  <g transform="translate(155, 68)" class="animate-float-slow">
+                    <ellipse cx="25" cy="8" rx="46" ry="3" fill="#a7f3d0" class="animate-rotor" />
+                    <ellipse cx="25" cy="15" rx="42" ry="2.5" fill="#34d399" class="animate-rotor" />
+                    <rect x="13" y="2" width="24" height="4" rx="1" fill="#38bdf8" />
+                    <rect x="17" y="20" width="16" height="14" rx="3" fill="#f8fafc" stroke="#10b981" stroke-width="1.5" />
+                    <line x1="17" y1="32" x2="7" y2="46" stroke="#cbd5e1" stroke-width="1.8" />
+                    <line x1="33" y1="32" x2="43" y2="46" stroke="#cbd5e1" stroke-width="1.8" />
+                  </g>
+                  <!-- MarCO A & B -->
+                  <g transform="translate(55, 75)">
+                    <rect x="0" y="6" width="10" height="8" fill="#fbbf24" />
+                    <rect x="-12" y="7" width="10" height="6" fill="#38bdf8" />
+                    <rect x="12" y="7" width="10" height="6" fill="#38bdf8" />
+                  </g>
+                  <g transform="translate(275, 95)">
+                    <rect x="0" y="6" width="10" height="8" fill="#a855f7" />
+                    <rect x="-12" y="7" width="10" height="6" fill="#38bdf8" />
+                    <rect x="12" y="7" width="10" height="6" fill="#38bdf8" />
+                  </g>
+                  <!-- Mars Surface & InSight -->
+                  <path d="M20 245 Q180 225 340 245 L340 330 L20 330 Z" fill="#7c2d12" opacity="0.55" />
+                  <g transform="translate(88, 195)">
+                    <circle cx="24" cy="24" r="22" fill="#1e3a8a" stroke="#34d399" stroke-width="1.8" />
+                    <circle cx="116" cy="24" r="22" fill="#1e3a8a" stroke="#34d399" stroke-width="1.8" />
+                    <rect x="44" y="16" width="52" height="14" rx="3" fill="#e2e8f0" />
+                    <line x1="50" y1="30" x2="42" y2="46" stroke="#cbd5e1" stroke-width="2.5" />
+                    <line x1="90" y1="30" x2="98" y2="46" stroke="#cbd5e1" stroke-width="2.5" />
+                  </g>
+                  <!-- SEIS Dome & Marsquake Ripples -->
+                  <g transform="translate(230, 232)">
+                    <path d="M0 14 A14 14 0 0 1 28 14 Z" fill="#f8fafc" stroke="#10b981" stroke-width="2" />
+                    <circle cx="14" cy="26" r="14" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.8">
+                      <animate attributeName="r" from="6" to="55" dur="2.8s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" from="0.9" to="0" dur="2.8s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="14" cy="26" r="14" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.8">
+                      <animate attributeName="r" from="6" to="55" dur="2.8s" begin="1.4s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" from="0.9" to="0" dur="2.8s" begin="1.4s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                  <text x="20" y="30" fill="#34d399" font-family="JetBrains Mono" font-size="11">D10–D14 • 72 CHUYẾN BAY</text>
+                  <text x="20" y="46" fill="#94a3b8" font-family="JetBrains Mono" font-size="10">INSIGHT • SEIS • INGENUITY</text>
+                </svg>
+              </div>
+              <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-700/60 text-center font-mono">
+                <div>
+                  <div class="text-[10px] text-slate-400">INGENUITY</div>
+                  <div class="text-xs sm:text-sm font-semibold text-emerald-300">72 chuyến</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-slate-400">KHÍ QUYỂN</div>
+                  <div class="text-xs sm:text-sm font-semibold text-white">&lt; 1% Trái Đất</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-slate-400">DỮ LIỆU</div>
+                  <div class="text-xs sm:text-sm font-semibold text-emerald-300">D10–D14</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Concept Inspector Card for Chapter 5 -->
+            <div id="inspector-ch5" class="cosmic-glass rounded-2xl p-5 border border-emerald-400/30 bg-emerald-500/5">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-300">✦ Trạm Giải Mã Khái Niệm (Ch.5)</span>
+                <span id="insp-badge-5" class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200 font-mono text-[11px]">#17 • D10</span>
+              </div>
+              <h4 id="insp-title-5" class="font-serif text-xl font-bold text-white">Marsquake (Động đất Sao Hỏa)</h4>
+              <p id="insp-desc-5" class="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
+                Những rung chấn địa chất tự nhiên bên trong lòng Sao Hỏa được địa chấn kế vòm SEIS của tàu InSight ghi nhận để giải mã cấu trúc lớp vỏ, manti và lõi hành tinh.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Narrative, Characters & Concept Matrix -->
+          <div class="lg:col-span-7 space-y-8">
+            <article class="reveal-block cosmic-glass rounded-3xl p-6 sm:p-9 space-y-5 text-slate-200 text-base sm:text-[17px] leading-[1.88]"
+                     style="--hl-bg: rgba(52, 211, 153, 0.16); --hl-text: #a7f3d0; --hl-border: rgba(52, 211, 153, 0.7); --hl-bg-hover: rgba(52, 211, 153, 0.34); --hl-glow: rgba(52, 211, 153, 0.35);">
+              <p class="story-paragraph">
+                Kết thúc hành trình xuyên ngân hà, Astra đưa các bạn nhỏ trở lại Sao Hỏa của kỷ nguyên hiện đại. Ngày 26 tháng 11 năm 2018, dưới sự dẫn đường truyền tin thời gian thực của cặp vệ tinh tí hon <span class="concept-hl" data-cid="c21" data-code="#21">Song Sinh CubeSat MarCO</span> (MarCO A &amp; B, hay Wall-E &amp; EVA), bác sĩ <span class="concept-hl" data-cid="c16" data-code="#16">InSight</span> đã đáp êm xuống đồng bằng <span class="concept-hl" data-cid="c19" data-code="#19">Elysium Planitia</span>. Xòe đôi cánh pin tròn như hai chiếc quạt giấy, InSight nhẹ nhàng đặt <span class="concept-hl" data-cid="c18" data-code="#18">Chiếc Tai Vòm SEIS</span> xuống mặt đất, nằm im lặng tuyệt đối để lắng nghe từng rung động <span class="concept-hl" data-cid="c17" data-code="#17">Marsquake</span> sâu trong lòng đất và vẽ nên bản đồ trái tim của Hành Tinh Đỏ.
+              </p>
+              <p>
+                Phía trên <span class="concept-hl" data-cid="c24" data-code="#24">hố Jezero</span> năm 2021, <span class="concept-hl" data-cid="c30" data-code="#30">Anh Cả Săn Dấu Sống Perseverance</span> dũng cảm lăn bánh đi tìm dấu vết hợp chất hữu cơ cổ đại, đồng thời thả chú trực thăng tí hon <span class="concept-hl" data-cid="c23" data-code="#23">Ingenuity</span> nặng vỏn vẹn 1,8 kilôgam với hai tầng cánh quạt dài 1,2 mét cất cánh giữa <span class="concept-hl" data-cid="c28" data-code="#28">bầu khí quyển loãng chưa tới 1% Trái Đất</span>. Lập nên kỳ tích 72 chuyến bay lịch sử, vút cao 24 mét và bay xa 17 kilômét, Ingenuity đã làm trinh sát dẫn đường cho Anh Cả Perseverance khám phá những vùng đất mới. Thế rồi thời gian cũng dịu dàng khép lại hành trình của những người bạn tiên phong: cặp Song Sinh CubeSat MarCO mất liên lạc và trôi dạt im lìm ngoài không gian; lớp bụi đỏ dày đặc dần phủ kín đôi cánh pin khiến bác sĩ InSight và Chiếc Tai Vòm SEIS ngừng lắng nghe nhịp tim Sao Hỏa; còn chú chuồn chuồn nhỏ Ingenuity sau 72 chuyến bay phi thường đã hạ cánh lần cuối và đậu lại bất động giữa cồn cát hố Jezero.
+              </p>
+            </article>
+
+            <div class="reveal-block">
+              <h3 class="font-mono text-xs uppercase tracking-widest text-emerald-300 mb-3 px-1">✦ Tuyến 5 Nhân Vật Tiêu Biểu Chương 5 (Bấm để xem hồ sơ NSSDCA)</h3>
+              <div id="chars-ch5" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+            </div>
+
+            <div class="reveal-block cosmic-glass rounded-3xl p-6 border border-slate-700/60">
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-800">
+                <div>
+                  <h4 class="font-serif text-xl font-bold text-white">Hồ Sơ Dữ Liệu &amp; 26 Khái Niệm Khoa Học (Chương 5)</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Nguồn: <strong class="text-emerald-300">D10 (InSight), D11 (Ingenuity/Perseverance) &amp; D12–D14 (MarCO/Khách thư)</strong></p>
+                </div>
+                <div id="filters-ch5" class="flex flex-wrap gap-1.5"></div>
+              </div>
+              <div id="concepts-ch5" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PART II: MA TRẬN TỔNG QUAN 14 BỘ DỮ LIỆU & 90 KHÁI NIỆM KHOA HỌC     -->
+    <!-- ===================================================================== -->
+    <section id="matrix-overview" class="py-20 sm:py-28 px-4 sm:px-8 relative border-t border-slate-800/80">
+      <div class="max-w-6xl mx-auto">
+        <div class="reveal-block text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-purple-500/15 border border-purple-400/30 text-purple-200 font-mono text-xs tracking-widest uppercase mb-4">
+            <span>PHẦN II • MA TRẬN KHOA HỌC NASA</span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white leading-tight mb-3">
+            Bảng Đối Chiếu 14 Bộ Dữ Liệu (D01–D14) &amp; 90 Khái Niệm
+          </h2>
+          <p class="text-sm sm:text-base text-slate-300">
+            Hệ thống hóa toàn bộ 14 bộ dữ liệu gốc từ kho lưu trữ NASA NSSDCA và phân bổ trọn vẹn 90 khái niệm khoa học xuyên suốt 5 chương kể chuyện.
+          </p>
+        </div>
+
+        <div class="reveal-block cosmic-glass rounded-3xl overflow-hidden border border-slate-700/70">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead>
+                <tr class="bg-slate-900/95 border-b border-slate-700/80 font-mono text-[11px] uppercase tracking-wider text-amber-200">
+                  <th class="py-4 px-4 sm:px-6">Chương</th>
+                  <th class="py-4 px-4">Bộ Dữ Liệu NASA</th>
+                  <th class="py-4 px-4 text-center">Số Khái Niệm</th>
+                  <th class="py-4 px-4">Phân Bổ Mã Khái Niệm (/90)</th>
+                  <th class="py-4 px-4 sm:px-6">Trọng Tâm Sứ Mệnh &amp; Địa Điểm</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/80 text-slate-200">
+                <tr class="hover:bg-white/[0.03] transition">
+                  <td class="py-4 px-4 sm:px-6 font-bold text-amber-200 whitespace-nowrap"><a href="#chapter-1" class="hover:underline">Chương 1</a></td>
+                  <td class="py-4 px-4 font-mono text-xs text-slate-100"><strong>D01</strong> (Surveyor 3 &amp; Apollo 12)</td>
+                  <td class="py-4 px-4 text-center font-mono font-bold text-amber-300">13</td>
+                  <td class="py-4 px-4 font-mono text-xs text-slate-300">#73 – #85 (Mục V)</td>
+                  <td class="py-4 px-4 sm:px-6 text-slate-300">Thử lực nén đất Mặt Trăng (~10 psi) &amp; di vật lịch sử Apollo tại Oceanus Procellarum.</td>
+                </tr>
+                <tr class="hover:bg-white/[0.03] transition">
+                  <td class="py-4 px-4 sm:px-6 font-bold text-orange-300 whitespace-nowrap"><a href="#chapter-2" class="hover:underline">Chương 2</a></td>
+                  <td class="py-4 px-4 font-mono text-xs text-slate-100"><strong>D02</strong> (Viking 1) &amp; <strong>D03</strong> (Pathfinder)</td>
+                  <td class="py-4 px-4 text-center font-mono font-bold text-orange-300">11</td>
+                  <td class="py-4 px-4 font-mono text-xs text-slate-300">#41 – #47 &amp; #50 – #53 (Mục II)</td>
+                  <td class="py-4 px-4 sm:px-6 text-slate-300">Thử nghiệm mẫu đất GCMS &amp; hạ cánh túi khí nảy 15 lần tìm đá cuội dòng sông cổ tại Chryse Planitia &amp; Ares Vallis.</td>
+                </tr>
+                <tr class="hover:bg-white/[0.03] transition">
+                  <td class="py-4 px-4 sm:px-6 font-bold text-amber-300 whitespace-nowrap"><a href="#chapter-3" class="hover:underline">Chương 3</a></td>
+                  <td class="py-4 px-4 font-mono text-xs text-slate-100"><strong>D04</strong> (Spirit/Opportunity) &amp; <strong>D05</strong> (NSSDCA Archive)</td>
+                  <td class="py-4 px-4 text-center font-mono font-bold text-amber-300">10</td>
+                  <td class="py-4 px-4 font-mono text-xs text-slate-300">#32 – #40 (Mục II) &amp; #72 (NSSDCA)</td>
+                  <td class="py-4 px-4 sm:px-6 text-slate-300">Hành trình 14 năm tìm suối nước nóng &amp; sỏi hematit tại Hố Gusev &amp; Meridiani Planum; lưu trữ vĩnh viễn trong Master Catalog.</td>
+                </tr>
+                <tr class="hover:bg-white/[0.03] transition">
+                  <td class="py-4 px-4 sm:px-6 font-bold text-sky-300 whitespace-nowrap"><a href="#chapter-4" class="hover:underline">Chương 4</a></td>
+                  <td class="py-4 px-4 font-mono text-xs text-slate-100"><strong>D06</strong> (Pioneer 10), <strong>D07</strong> (NEAR), <strong>D08</strong> (Dawn), <strong>D09</strong> (Kepler)</td>
+                  <td class="py-4 px-4 text-center font-mono font-bold text-sky-300">30</td>
+                  <td class="py-4 px-4 font-mono text-xs text-slate-300">#1 – #15 (Mục I), #54 – #61 (Mục III), #65 – #71 (Mục IV)</td>
+                  <td class="py-4 px-4 sm:px-6 text-slate-300">Bức thư mạ vàng bay 12,23 tỷ km về Aldebaran, ôm tiểu hành tinh 433 Eros, thăm Vesta &amp; Ceres, tìm &gt;2.600 exoplanet.</td>
+                </tr>
+                <tr class="hover:bg-white/[0.03] transition">
+                  <td class="py-4 px-4 sm:px-6 font-bold text-emerald-300 whitespace-nowrap"><a href="#chapter-5" class="hover:underline">Chương 5</a></td>
+                  <td class="py-4 px-4 font-mono text-xs text-slate-100"><strong>D10</strong> (InSight), <strong>D11</strong> (Ingenuity) &amp; <strong>D12–D14</strong> (MarCO/Khách thư)</td>
+                  <td class="py-4 px-4 text-center font-mono font-bold text-emerald-300">26</td>
+                  <td class="py-4 px-4 font-mono text-xs text-slate-300">#16 – #31 (Mục II), #48 – #49, #62 – #64, #86 – #90 (Mục VI)</td>
+                  <td class="py-4 px-4 sm:px-6 text-slate-300">Lắng nghe nhịp đập Marsquake lòng đất tại Elysium Planitia &amp; lập kỳ tích 72 chuyến bay lịch sử tại Jezero Crater.</td>
+                </tr>
+                <tr class="bg-amber-400/10 font-bold text-white border-t-2 border-amber-300/40">
+                  <td class="py-4 px-4 sm:px-6 font-mono text-amber-200">TỔNG CỘNG</td>
+                  <td class="py-4 px-4 font-mono text-xs text-amber-200">14 Bộ Dữ Liệu (D01–D14)</td>
+                  <td class="py-4 px-4 text-center font-mono text-base text-amber-300">90</td>
+                  <td class="py-4 px-4 font-mono text-xs text-amber-200">Đầy đủ #01 – #90</td>
+                  <td class="py-4 px-4 sm:px-6 text-amber-100">Trọn vẹn 5 chương kể chuyện giáo dục STEM &amp; bảo tồn ký ức di tích ngoài không gian.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- GRAND FINALE: VÒNG TRÒN KÝ ỨC NSSDCA                                  -->
+    <!-- ===================================================================== -->
+    <section id="finale" class="py-24 sm:py-32 px-4 sm:px-8 relative border-t border-slate-800/80">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="reveal-block">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/15 border border-amber-300/35 text-amber-200 font-mono text-xs tracking-widest uppercase mb-6">
+            <span>✦ VÒNG TRÒN KÝ ỨC VŨ TRỤ • WHALE VORTEX ✦</span>
+          </div>
+
+          <h2 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+            Đừng Quên Chúng Tớ Nhé!
+          </h2>
+
+          <p class="text-lg sm:text-xl text-slate-200 leading-relaxed mb-8">
+            Giữa vũ trụ bao la, ánh sáng từ Trạm Ký Ức Whale Vortex của Astra liền kết nối tất cả các người bạn robot và di vật lại thành một vòng tròn lung linh, cùng mỉm cười vẫy tay hướng về Trái Đất xanh ấm áp và nhắn nhủ:
+          </p>
+
+          <div class="cosmic-glass rounded-3xl p-8 sm:p-10 border border-amber-300/35 shadow-[0_0_60px_rgba(251,191,36,0.14)] mb-12">
+            <div class="text-4xl text-amber-300/40 font-serif leading-none mb-2">“</div>
+            <blockquote class="font-serif italic text-2xl sm:text-3xl md:text-4xl text-amber-100 leading-snug">
+              Sứ mệnh của các bạn robot đã hoàn thành xuất sắc rồi! Giờ đến lượt các bạn nhỏ Trái Đất viết tiếp tương lai và Đừng Quên Chúng Tớ Nhé!
+            </blockquote>
+            <div class="mt-4 font-mono text-xs text-amber-300/85 uppercase tracking-widest">
+              — Astra &amp; Đại Gia Đình 25 Sứ Giả Không Gian —
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center gap-4">
+            <button id="sendSignalBtn" type="button"
+                    class="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-400 text-slate-950 font-bold text-sm sm:text-base shadow-[0_0_35px_rgba(251,191,36,0.45)] hover:scale-105 active:scale-95 transition cursor-pointer">
+              <span>✨ Gửi Tín Hiệu Hồi Đáp Từ Trái Đất</span>
+              <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+              </svg>
+            </button>
+            <div id="signalToast" class="h-6 text-xs sm:text-sm font-mono text-amber-200 opacity-0 transition-opacity duration-500">
+              ★ Chùm tín hiệu ánh sáng đã bay vút lên bầu trời đêm tới Trạm Ký Ức Whale Vortex!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-slate-800/80 py-10 px-4 text-center text-xs text-slate-500 font-mono">
+      <p class="text-slate-400 mb-1">WHALE VORTEX • TIẾNG GỌI TỪ VŨ TRỤ: ĐỪNG QUÊN CHÚNG TÔI</p>
+      <p>Kịch bản 5 Chương • 25 Nhân Vật Tiêu Biểu • 14 Bộ Dữ Liệu NASA (D01–D14) • 90 Khái Niệm Khoa Học</p>
+    </footer>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- UNIVERSAL MODAL (FOR CHARACTER DOSSIER OR CONCEPT DETAILS)            -->
+  <!-- ===================================================================== -->
+  <div id="detailModal" role="dialog" aria-modal="true"
+       class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+    <div id="modalCard" class="cosmic-glass w-full max-w-lg rounded-3xl p-6 sm:p-8 border border-slate-600/40 relative transform scale-95 opacity-0 transition-all duration-200">
+      <button id="closeModalBtn" type="button" aria-label="Đóng"
+              class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition cursor-pointer">
+        ✕
+      </button>
+
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span id="modalBadge1" class="px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-amber-400/15 text-amber-200 border border-amber-300/30">
+          CHƯƠNG 1
+        </span>
+        <span id="modalBadge2" class="px-3 py-1 rounded-full text-[11px] font-mono bg-slate-800 text-slate-300">
+          D01
+        </span>
+      </div>
+
+      <div class="flex items-start gap-4 mb-5">
+        <div id="modalIcon" class="w-14 h-14 rounded-2xl bg-slate-800/90 border border-slate-700 flex items-center justify-center text-3xl shrink-0">
+          🛰️
+        </div>
+        <div>
+          <h3 id="modalTitle" class="font-serif text-2xl sm:text-3xl font-bold text-white leading-tight">
+            Tiêu đề
+          </h3>
+          <p id="modalSubtitle" class="text-sm font-medium text-amber-300 mt-0.5">
+            Phụ đề
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 mb-5 font-mono text-xs">
+        <div>
+          <div id="modalMeta1Label" class="text-slate-400 text-[10px] uppercase">NGUỒN DỮ LIỆU</div>
+          <div id="modalMeta1Val" class="text-slate-100 font-semibold mt-0.5">—</div>
+        </div>
+        <div>
+          <div id="modalMeta2Label" class="text-slate-400 text-[10px] uppercase">DẤU ẤN KHOA HỌC</div>
+          <div id="modalMeta2Val" class="text-amber-200 font-semibold mt-0.5">—</div>
+        </div>
+      </div>
+
+      <p id="modalBody" class="text-sm sm:text-base text-slate-200 leading-relaxed mb-6">
+        Nội dung chi tiết.
+      </p>
+
+      <div class="flex items-center justify-between gap-3 pt-4 border-t border-slate-800/80">
+        <button id="modalJumpBtn" type="button" class="hidden px-4 py-2 rounded-full bg-amber-400/20 hover:bg-amber-400/30 border border-amber-300/40 text-xs font-mono text-amber-200 transition cursor-pointer">
+          📍 Tìm trong lời kể
+        </button>
+        <button id="modalDoneBtn" type="button" class="ml-auto px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-200 transition cursor-pointer">
+          Đóng hồ sơ
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT ENGINE: 25 CHARACTERS, 90 CONCEPTS, CANVAS & WEB AUDIO     -->
+  <!-- ===================================================================== -->
+  <script>
+    // 1. ALL 90 SCIENTIFIC CONCEPTS ACROSS CHAPTERS 1 - 5 (D01 - D14)
+    const CONCEPTS = [
+      // CHAPTER 1: 13 Concepts (#73 - #85, D01)
+      { id: 'c73', code: '#73', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Tàu đổ bộ Surveyor 3', desc: 'Tàu đổ bộ tự động ba chân hạ cánh xuống Mặt Trăng ngày 20/04/1967 để khảo sát độ cứng bề mặt trước tàu Apollo.' },
+      { id: 'c74', code: '#74', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Oceanus Procellarum', desc: 'Biển Bão Tố — vùng đồng bằng bazan rộng lớn phía tây Mặt Trăng nơi Surveyor 3 và Apollo 12 hạ cánh.' },
+      { id: 'c75', code: '#75', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Mô-đun Intrepid', desc: 'Mô-đun Mặt Trăng của sứ mệnh Apollo 12 hạ cánh chính xác cách Surveyor 3 chỉ 180 mét vào ngày 19/11/1969.' },
+      { id: 'c76', code: '#76', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Kỹ thuật ảnh 3D Stereoscopic', desc: 'Phương pháp chụp ảnh nổi lập thể giúp các nhà khoa học tái tạo độ sâu và địa hình rãnh đất Mặt Trăng.' },
+      { id: 'c77', code: '#77', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Thiết bị lấy mẫu đất bề mặt', desc: 'Cánh tay xẻng sắt dài 1,5 mét của Surveyor 3 đào 4 rãnh đất để kiểm tra tính chất cơ học lớp bụi regolith.' },
+      { id: 'c78', code: '#78', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Độ chịu tải của đất Mặt Trăng (~10 psi)', desc: 'Sức chịu nén đạt ~10 psi (0,7 kg/cm²), chứng minh đất Mặt Trăng vững chắc như cát ướt ven biển, không lún như cát lún.' },
+      { id: 'c79', code: '#79', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Sự cố nảy bề mặt', desc: 'Do động cơ giảm tốc tắt muộn, Surveyor 3 đã nảy tưng lên hai lần trên bề mặt Mặt Trăng trước khi đứng vững.' },
+      { id: 'c80', code: '#80', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Huy chương Gagarin & Komarov', desc: 'Hai tấm huy chương tưởng niệm các nhà du hành vũ trụ Liên Xô được phi hành đoàn Apollo đặt lại trên Mặt Trăng như biểu tượng hòa bình.' },
+      { id: 'c81', code: '#81', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Quốc kỳ Mỹ', desc: 'Lá cờ có thanh ngang giữ thẳng được các sứ mệnh Apollo cắm lại tại các bãi đáp Mặt Trăng.' },
+      { id: 'c82', code: '#82', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Thiết bị chứa chất thải', desc: 'Các túi chứa sinh hoạt được để lại trên Mặt Trăng nhằm giảm trọng lượng cho tàu cất cánh trở về quỹ đạo.' },
+      { id: 'c83', code: '#83', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Bấm móng tay di vật', desc: 'Một trong những vật dụng cá nhân nhỏ bé của phi hành gia còn lưu lại trên vầng trăng hoang vắng.' },
+      { id: 'c84', code: '#84', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Ảnh gia đình Charles Duke', desc: 'Bức ảnh gia đình phi hành gia Apollo 16 bọc trong túi nilon đặt lại trên Mặt Trăng tháng 4/1972 với lời nhắn từ Trái Đất.' },
+      { id: 'c85', code: '#85', ch: 1, ds: 'D01', dsName: 'D01 - Surveyor 3 & Apollo 12', name: 'Thí nghiệm Búa và Lông chim ưng', desc: 'Thí nghiệm rơi tự do trong chân không của chỉ huy David Scott (Apollo 15) chứng minh định luật Galileo: vật nặng và nhẹ rơi nhanh như nhau.' },
+
+      // CHAPTER 2: 11 Concepts (#41 - #47 & #50 - #53, D02 & D03)
+      { id: 'c50', code: '#50', ch: 2, ds: 'D02', dsName: 'D02 - Viking 1', name: 'Viking 1', desc: 'Trạm đổ bộ tiên phong của NASA hạ cánh xuống Sao Hỏa ngày 20/07/1976, gửi về 52.663 ảnh quỹ đạo và 4.500 ảnh bề mặt.' },
+      { id: 'c51', code: '#51', ch: 2, ds: 'D02', dsName: 'D02 - Viking 1', name: 'Chryse Planitia', desc: 'Đồng bằng Hoàng Kim ở bán cầu bắc Sao Hỏa — nơi tàu đổ bộ Viking 1 đặt những chiếc chân vững chãi đầu tiên.' },
+      { id: 'c52', code: '#52', ch: 2, ds: 'D02', dsName: 'D02 - Viking 1', name: 'Máy phổ GCMS', desc: 'Sắc ký khí khối phổ kế (Lò Nướng Tí Hon) nung 4 mẫu đất ở độ nhạy 10–100 ppb để tìm phân tử hữu cơ trên Sao Hỏa.' },
+      { id: 'c53', code: '#53', ch: 2, ds: 'D02', dsName: 'D02 - Viking 1', name: 'Trạm Thomas Mutch', desc: 'Tên vinh danh dành cho trạm đổ bộ Viking 1 theo tên trưởng nhóm chụp ảnh bề mặt Sao Hỏa Thomas A. Mutch.' },
+      { id: 'c41', code: '#41', ch: 2, ds: 'D03', dsName: 'D03 - Mars Pathfinder & Sojourner', name: 'Pathfinder', desc: 'Trạm đổ bộ Mars Pathfinder hạ cánh ngày 04/07/1997, mở ra kỷ nguyên thám hiểm Sao Hỏa chi phí tối ưu và hiệu quả cao.' },
+      { id: 'c42', code: '#42', ch: 2, ds: 'D03', dsName: 'D03 - Mars Pathfinder & Sojourner', name: 'Xe tự hành Sojourner', desc: 'Robot tự hành 6 bánh đầu tiên lăn bánh trên hành tinh khác, nặng 10,6 kg và cao 30 cm.' },
+      { id: 'c43', code: '#43', ch: 2, ds: 'D03', dsName: 'D03 - Mars Pathfinder & Sojourner', name: 'Ares Vallis', desc: 'Thung lũng lũ cổ đại nơi Pathfinder tìm thấy nhiều viên đá cuội tròn nhẵn chứng tỏ từng có dòng nước chảy xiết.' },
+      { id: 'c44', code: '#44', ch: 2, ds: 'D03', dsName: 'D03 - Mars Pathfinder & Sojourner', name: 'Kỹ thuật hạ cánh túi khí', desc: 'Hệ thống áo phao túi khí đường kính 5,8m giúp Pathfinder tiếp đất ở vận tốc 14 m/s và nảy 15 lần an toàn.' },
+      { id: 'c45', code: '#45', ch: 2, ds: 'D03', dsName: 'D03 - Mars Pathfinder & Sojourner', name: 'Trạm Carl Sagan', desc: 'Tên tưởng niệm nhà thiên văn học Carl Sagan được đặt cho trạm đổ bộ Mars Pathfinder sau khi hạ cánh thành công.' },
+      { id: 'c46', code: '#46', ch: 2, ds: 'D03', dsName: 'D03 - Mars Pathfinder & Sojourner', name: 'Phổ kế APXS', desc: 'Phổ kế tia X hạt Alpha (Chiếc Kính Lúp APXS) gắn trên Sojourner để phân tích thành phần hóa học của đá Sao Hỏa.' },
+      { id: 'c47', code: '#47', ch: 2, ds: 'D03', dsName: 'D03 - Mars Pathfinder & Sojourner', name: 'Gói khí tượng ASI/MET', desc: 'Thiết bị đo cấu trúc khí quyển và thời tiết giúp ghi nhận nhiệt độ, áp suất và gió bụi tại Ares Vallis.' },
+
+      // CHAPTER 3: 10 Concepts (#32 - #40 & #72, D04 & D05)
+      { id: 'c32', code: '#32', ch: 3, ds: 'D04', dsName: 'D04 - Spirit & Opportunity', name: 'Spirit', desc: 'Robot tự hành MER-A hoạt động tại hố Gusev, vượt qua 7,7 km địa hình đá hiểm trở vượt xa thiết kế 90 ngày ban đầu.' },
+      { id: 'c33', code: '#33', ch: 3, ds: 'D04', dsName: 'D04 - Spirit & Opportunity', name: 'Opportunity', desc: 'Robot tự hành MER-B lập kỷ lục lăn bánh 45,16 km suốt 14 năm trên Sao Hỏa trước cơn bão bụi toàn cầu năm 2018.' },
+      { id: 'c34', code: '#34', ch: 3, ds: 'D04', dsName: 'D04 - Spirit & Opportunity', name: 'Hố Gusev', desc: 'Hố thiên thạch khổng lồ rộng 166 km từng là hồ nước cổ đại, nơi Spirit khám phá lớp đất Silica tinh khiết.' },
+      { id: 'c35', code: '#35', ch: 3, ds: 'D04', dsName: 'D04 - Spirit & Opportunity', name: 'Meridiani Planum', desc: 'Vùng đồng bằng giàu khoáng hematit ("quả việt quất") chứng minh sự tồn tại của nước lỏng cổ đại trên Sao Hỏa.' },
+      { id: 'c36', code: '#36', ch: 3, ds: 'D04', dsName: 'D04 - Spirit & Opportunity', name: 'Hố Eagle', desc: 'Hố va chạm nhỏ đầu tiên nơi Opportunity lăn bánh vào và phát hiện ngay các lớp đá trầm tích hình thành trong nước.' },
+      { id: 'c37', code: '#37', ch: 3, ds: 'D04', dsName: 'D04 - Spirit & Opportunity', name: 'Trạm Columbia Memorial', desc: 'Tên đặt cho điểm hạ cánh của Spirit nhằm tưởng niệm 7 phi hành gia tàu con thoi Columbia.' },
+      { id: 'c38', code: '#38', ch: 3, ds: 'D04', dsName: 'D04 - Spirit & Opportunity', name: 'Camera Pancam', desc: 'Đôi mắt camera toàn cảnh độ phân giải cao gắn trên cột cao của Spirit và Opportunity để chụp ảnh màu lập thể.' },
+      { id: 'c39', code: '#39', ch: 3, ds: 'D04', dsName: 'D04 - Spirit & Opportunity', name: 'Bão bụi toàn cầu', desc: 'Cơn bão bụi khổng lồ tháng 6/2018 bao phủ toàn bộ Sao Hỏa, che kín ánh nắng khiến Opportunity cạn kiệt năng lượng.' },
+      { id: 'c40', code: '#40', ch: 3, ds: 'D04', dsName: 'D04 - Spirit & Opportunity', name: 'Quỷ bụi Sao Hỏa', desc: 'Những cơn lốc xoáy nhỏ quét qua thung lũng giúp thổi sạch bụi đỏ bám trên pin mặt trời, hồi sinh năng lượng cho robot.' },
+      { id: 'c72', code: '#72', ch: 3, ds: 'D05', dsName: 'D05 - Kho Lưu Trữ NSSDCA Archive', name: 'Trung tâm lưu giữ dữ liệu NSSDCA', desc: 'Trạm Ký Ức Vũ Trụ lưu giữ vĩnh viễn Master Catalog cùng toàn bộ 14 bộ dữ liệu khoa học của các sứ mệnh không gian.' },
+
+      // CHAPTER 4: 30 Concepts (#01-#15, #54-#61, #65-#71, D06-D09)
+      { id: 'c65', code: '#65', ch: 4, ds: 'D06', dsName: 'D06 - Pioneer 10', name: 'Pioneer 10', desc: 'Tàu thăm dò phóng năm 1972, con tàu đầu tiên vượt vành đai tiểu hành tinh, bay qua Sao Mộc và tiến ra không gian liên sao.' },
+      { id: 'c66', code: '#66', ch: 4, ds: 'D06', dsName: 'D06 - Pioneer 10', name: 'RTG SNAP-19', desc: 'Nguồn năng lượng nhiệt điện đồng vị phóng xạ giúp Pioneer 10 duy trì liên lạc tới tận khoảng cách 12,23 tỷ km.' },
+      { id: 'c67', code: '#67', ch: 4, ds: 'D06', dsName: 'D06 - Pioneer 10', name: 'Pioneer Plaque', desc: 'Bức thư mạ vàng khắc hình con người Trái Đất vẫy tay và bản đồ định vị Hệ Mặt Trời gắn trên thân Pioneer 10.' },
+      { id: 'c68', code: '#68', ch: 4, ds: 'D06', dsName: 'D06 - Pioneer 10', name: 'Từ quyển Sao Mộc', desc: 'Vùng từ trường khổng lồ bao quanh Sao Mộc mà Pioneer 10 lần đầu tiên đo đạc trực tiếp năm 1973.' },
+      { id: 'c69', code: '#69', ch: 4, ds: 'D06', dsName: 'D06 - Pioneer 10', name: 'Vết Đỏ Lớn', desc: 'Siêu bão khổng lồ tồn tại hàng trăm năm trên khí quyển Sao Mộc được Pioneer 10 chụp cận cảnh.' },
+      { id: 'c70', code: '#70', ch: 4, ds: 'D06', dsName: 'D06 - Pioneer 10', name: 'Ánh sáng Hoàng đạo', desc: 'Dải ánh sáng mờ phản chiếu từ bụi liên hành tinh trong Hệ Mặt Trời mà Pioneer 10 khảo sát trên đường bay.' },
+      { id: 'c71', code: '#71', ch: 4, ds: 'D06', dsName: 'D06 - Pioneer 10', name: 'Aldebaran', desc: 'Ngôi sao khổng lồ đỏ trong chòm Kim Ngưu — hướng bay đường dài của Pioneer 10 trong tương lai hàng triệu năm tới.' },
+
+      { id: 'c09', code: '#09', ch: 4, ds: 'D07', dsName: 'D07 - NEAR Shoemaker', name: 'NEAR Shoemaker', desc: 'Tàu vũ trụ đầu tiên quay quanh và hạ cánh nhẹ nhàng (6,4 km/h) lên một tiểu hành tinh vào ngày 12/02/2001.' },
+      { id: 'c10', code: '#10', ch: 4, ds: 'D07', dsName: 'D07 - NEAR Shoemaker', name: '433 Eros', desc: 'Tiểu hành tinh gần Trái Đất hình củ khoai tây dài 33 km, nhiệt độ -173°C — nơi yên nghỉ của NEAR Shoemaker.' },
+      { id: 'c11', code: '#11', ch: 4, ds: 'D07', dsName: 'D07 - NEAR Shoemaker', name: '253 Mathilde', desc: 'Tiểu hành tinh giàu carbon tối màu mà NEAR Shoemaker bay ngang qua chụp ảnh năm 1997.' },
+      { id: 'c12', code: '#12', ch: 4, ds: 'D07', dsName: 'D07 - NEAR Shoemaker', name: 'Discovery', desc: 'Chương trình thám hiểm không gian tốc độ cao, chi phí tối ưu của NASA mà NEAR Shoemaker là sứ mệnh mở đầu.' },
+      { id: 'c13', code: '#13', ch: 4, ds: 'D07', dsName: 'D07 - NEAR Shoemaker', name: 'XGRS', desc: 'Phổ kế tia X và tia Gamma giúp phân tích thành phần nguyên tố bề mặt tiểu hành tinh 433 Eros.' },
+      { id: 'c14', code: '#14', ch: 4, ds: 'D07', dsName: 'D07 - NEAR Shoemaker', name: 'Laser NLR', desc: 'Máy đo cao độ bằng tia laser vẽ bản đồ địa hình 3D siêu chính xác của tiểu hành tinh 433 Eros.' },
+      { id: 'c15', code: '#15', ch: 4, ds: 'D07', dsName: 'D07 - NEAR Shoemaker', name: 'Himeros', desc: 'Vùng lõm hình yên ngựa khổng lồ trên bề mặt tiểu hành tinh 433 Eros.' },
+
+      { id: 'c01', code: '#01', ch: 4, ds: 'D08', dsName: 'D08 - Dawn', name: 'Dawn', desc: 'Tàu thăm dò phóng năm 2007, con tàu duy nhất từng bay vào quỹ đạo của hai thiên thể Vesta và Ceres.' },
+      { id: 'c02', code: '#02', ch: 4, ds: 'D08', dsName: 'D08 - Dawn', name: 'Vesta', desc: 'Tiểu hành tinh khổng lồ sáng nhất vành đai chính với ngọn núi lửa cổ Rheasilvia cao gấp đôi đỉnh Everest.' },
+      { id: 'c03', code: '#03', ch: 4, ds: 'D08', dsName: 'D08 - Dawn', name: 'Ceres', desc: 'Hành tinh lùn lớn nhất trong vành đai tiểu hành tinh, nơi tàu Dawn trở thành vệ tinh im lìm muôn đời.' },
+      { id: 'c04', code: '#04', ch: 4, ds: 'D08', dsName: 'D08 - Dawn', name: 'Vành đai tiểu hành tinh', desc: 'Vùng không gian chứa hàng triệu thiên thể đá cổ xưa nằm giữa quỹ đạo Sao Hỏa và Sao Mộc.' },
+      { id: 'c05', code: '#05', ch: 4, ds: 'D08', dsName: 'D08 - Dawn', name: 'Động cơ Ion', desc: 'Động cơ đẩy sử dụng khí Xenon ion hóa phát ánh sáng xanh lam bền bỉ giúp Dawn du hành qua hai thế giới.' },
+      { id: 'c06', code: '#06', ch: 4, ds: 'D08', dsName: 'D08 - Dawn', name: 'GRaND', desc: 'Máy dò tia Gamma và Neutron phát hiện dấu vết nước băng và khoáng chất ngậm nước trên Ceres.' },
+      { id: 'c07', code: '#07', ch: 4, ds: 'D08', dsName: 'D08 - Dawn', name: 'VIR', desc: 'Phổ kế ánh sáng nhìn thấy và hồng ngoại giải mã các đốm sáng muối khoáng bí ẩn trong hố Occator trên Ceres.' },
+      { id: 'c08', code: '#08', ch: 4, ds: 'D08', dsName: 'D08 - Dawn', name: 'Camera FC', desc: 'Hệ thống Framing Camera chụp bản đồ toàn bề mặt với độ phân giải cao của Vesta và Ceres.' },
+
+      { id: 'c54', code: '#54', ch: 4, ds: 'D09', dsName: 'D09 - Kepler / K2', name: 'Kepler', desc: 'Kính thiên văn không gian trang bị gương 1,4m quan sát 150.000 ngôi sao để săn tìm các hành tinh giống Trái Đất.' },
+      { id: 'c55', code: '#55', ch: 4, ds: 'D09', dsName: 'D09 - Kepler / K2', name: 'Exoplanet', desc: 'Hành tinh ngoại hệ quay quanh các ngôi sao ngoài Mặt Trời — Kepler đã phát hiện hơn 2.600 thế giới mới.' },
+      { id: 'c56', code: '#56', ch: 4, ds: 'D09', dsName: 'D09 - Kepler / K2', name: 'Transit', desc: 'Phương pháp quá cảnh ("Chú Mắt Nháy"): đo độ sụt sáng cực nhỏ khi một hành tinh đi ngang qua mặt ngôi sao mẹ.' },
+      { id: 'c57', code: '#57', ch: 4, ds: 'D09', dsName: 'D09 - Kepler / K2', name: 'Vùng sống được', desc: 'Khoảng cách vàng quanh một ngôi sao cho phép nước lỏng tồn tại ổn định trên bề mặt hành tinh đá.' },
+      { id: 'c58', code: '#58', ch: 4, ds: 'D09', dsName: 'D09 - Kepler / K2', name: 'Cygnus', desc: 'Chòm sao Thiên Nga — vùng bầu trời giàu sao mà kính thiên văn Kepler hướng mắt ngắm nhìn suốt 4 năm đầu.' },
+      { id: 'c59', code: '#59', ch: 4, ds: 'D09', dsName: 'D09 - Kepler / K2', name: 'Bánh xe phản lực', desc: 'Con quay hồi chuyển giữ kính Kepler định hướng siêu ổn định; khi hỏng 2 bánh, các kỹ sư đã sáng tạo sứ mệnh K2.' },
+      { id: 'c60', code: '#60', ch: 4, ds: 'D09', dsName: 'D09 - Kepler / K2', name: 'K2', desc: 'Sứ mệnh mở rộng kỳ diệu tận dụng áp suất ánh sáng Mặt Trời để cân bằng kính Kepler tiếp tục săn hành tinh.' },
+      { id: 'c61', code: '#61', ch: 4, ds: 'D09', dsName: 'D09 - Kepler / K2', name: 'Áp suất photon', desc: 'Lực đẩy nhẹ của các hạt ánh sáng Mặt Trời được dùng khéo léo để giữ ổn định kính thiên văn Kepler trong giai đoạn K2.' },
+
+      // CHAPTER 5: 26 Concepts (#16-#31, #48-#49, #62-#64, #86-#90, D10-D14)
+      { id: 'c16', code: '#16', ch: 5, ds: 'D10', dsName: 'D10 - InSight', name: 'InSight', desc: 'Trạm địa vật lý xòe hai cánh pin tròn như quạt giấy, đáp xuống Sao Hỏa năm 2018 để nghiên cứu cấu trúc bên trong hành tinh.' },
+      { id: 'c17', code: '#17', ch: 5, ds: 'D10', dsName: 'D10 - InSight', name: 'Marsquake', desc: 'Động đất Sao Hỏa — các rung chấn địa chất giúp InSight "siêu âm" lớp vỏ, manti và lõi của Hành Tinh Đỏ.' },
+      { id: 'c18', code: '#18', ch: 5, ds: 'D10', dsName: 'D10 - InSight', name: 'SEIS', desc: 'Địa chấn kế vòm (Chiếc Tai Vòm SEIS) siêu nhạy đặt trực tiếp lên mặt đất Sao Hỏa để nghe nhịp đập hành tinh.' },
+      { id: 'c19', code: '#19', ch: 5, ds: 'D10', dsName: 'D10 - InSight', name: 'Elysium Planitia', desc: 'Đồng bằng phẳng rộng lớn gần xích đạo Sao Hỏa — ngôi nhà yên bình của trạm đổ bộ InSight.' },
+      { id: 'c20', code: '#20', ch: 5, ds: 'D10', dsName: 'D10 - InSight', name: 'Atlas V-401', desc: 'Tên lửa đẩy đưa trạm InSight và cặp vệ tinh tí hon MarCO rời Trái Đất hướng tới Sao Hỏa năm 2018.' },
+      { id: 'c22', code: '#22', ch: 5, ds: 'D10', dsName: 'D10 - InSight', name: 'Lớp manti Sao Hỏa', desc: 'Lớp đá silicat dày nằm giữa lớp vỏ và lõi kim loại của Sao Hỏa được đo đạc độ dày qua sóng địa chấn SEIS.' },
+      { id: 'c48', code: '#48', ch: 5, ds: 'D10', dsName: 'D10 - InSight', name: 'Maghemite', desc: 'Khoáng chất oxit sắt từ tính tạo nên sắc đỏ đặc trưng trong lớp bụi phủ kín cánh pin của InSight.' },
+      { id: 'c49', code: '#49', ch: 5, ds: 'D10', dsName: 'D10 - InSight', name: 'Lõi kim loại Sao Hỏa', desc: 'Nhờ sóng địa chấn xuyên qua tâm hành tinh, InSight xác định Sao Hỏa có lõi sắt-niken lỏng bán kính ~1.830 km.' },
+
+      { id: 'c23', code: '#23', ch: 5, ds: 'D11', dsName: 'D11 - Ingenuity & Perseverance', name: 'Ingenuity', desc: 'Trực thăng tí hon nặng 1,8 kg với cánh quạt 1,2m lập kỳ tích 72 chuyến bay (cao 24m, xa 17km) trên Sao Hỏa.' },
+      { id: 'c24', code: '#24', ch: 5, ds: 'D11', dsName: 'D11 - Ingenuity & Perseverance', name: 'Jezero Crater', desc: 'Hố thiên thạch từng chứa hồ nước và đồng bằng châu thổ cổ đại — nơi Perseverance và Ingenuity hoạt động.' },
+      { id: 'c25', code: '#25', ch: 5, ds: 'D11', dsName: 'D11 - Ingenuity & Perseverance', name: 'Wright Brothers Moment', desc: 'Chuyến bay đầu tiên của Ingenuity ngày 19/04/2021 — chuyến bay có động cơ điều khiển đầu tiên trên một hành tinh khác.' },
+      { id: 'c26', code: '#26', ch: 5, ds: 'D11', dsName: 'D11 - Ingenuity & Perseverance', name: 'WATSON', desc: 'Camera chụp cận cảnh độ phân giải cao gắn trên cánh tay robot của Perseverance để soi kết cấu vi mô của đá.' },
+      { id: 'c27', code: '#27', ch: 5, ds: 'D11', dsName: 'D11 - Ingenuity & Perseverance', name: 'SHERLOC', desc: 'Phổ kế Raman và huỳnh quang tia cực tím săn tìm các hợp chất hữu cơ và dấu vết sự sống cổ đại.' },
+      { id: 'c28', code: '#28', ch: 5, ds: 'D11', dsName: 'D11 - Ingenuity & Perseverance', name: 'Khí quyển thưa thớt', desc: 'Mật độ khí quyển Sao Hỏa chỉ bằng ~1% Trái Đất, buộc cánh quạt Ingenuity phải quay tới 2.500 vòng/phút để cất cánh.' },
+      { id: 'c29', code: '#29', ch: 5, ds: 'D11', dsName: 'D11 - Ingenuity & Perseverance', name: 'SkyFall', desc: 'Cần cẩu bầu trời (Sky Crane) thả Perseverance nhẹ nhàng bằng dây cáp xuống hố Jezero mà không cần chân đáp.' },
+      { id: 'c30', code: '#30', ch: 5, ds: 'D11', dsName: 'D11 - Ingenuity & Perseverance', name: 'Perseverance', desc: 'Anh Cả Săn Dấu Sống thu thập các ống mẫu đất đá Sao Hỏa chuẩn bị cho sứ mệnh đưa mẫu vật về Trái Đất.' },
+      { id: 'c31', code: '#31', ch: 5, ds: 'D11', dsName: 'D11 - Ingenuity & Perseverance', name: 'Neretva Vallis', desc: 'Thung lũng sông cổ từng dẫn nước đổ vào hồ Jezero nơi Perseverance khảo sát các lớp trầm tích.' },
+
+      { id: 'c21', code: '#21', ch: 5, ds: 'D12-D14', dsName: 'D12–D14 - MarCO & Khắc Thư Vũ Trụ', name: 'MarCO', desc: 'Song sinh CubeSat MarCO A & B (Wall-E & EVA) — hai vệ tinh siêu nhỏ truyền dữ liệu hạ cánh của InSight theo thời gian thực.' },
+      { id: 'c62', code: '#62', ch: 5, ds: 'D12-D14', dsName: 'D12–D14 - MarCO & Khắc Thư Vũ Trụ', name: 'TESS', desc: 'Vệ tinh khảo sát ngoại hành tinh quá cảnh kế nhiệm Kepler, quét toàn bộ bầu trời tìm hành tinh quanh các sao sáng gần.' },
+      { id: 'c63', code: '#63', ch: 5, ds: 'D12-D14', dsName: 'D12–D14 - MarCO & Khắc Thư Vũ Trụ', name: 'Supernova', desc: 'Siêu tân tinh — vụ nổ kết thúc vòng đời của sao khối lượng lớn, gieo rắc các nguyên tố nặng tạo nên hành tinh và sự sống.' },
+      { id: 'c64', code: '#64', ch: 5, ds: 'D12-D14', dsName: 'D12–D14 - MarCO & Khắc Thư Vũ Trụ', name: 'JWST', desc: 'Kính thiên văn không gian James Webb tiếp nối hành trình nhìn sâu vào bầu khí quyển các ngoại hành tinh.' },
+      { id: 'c86', code: '#86', ch: 5, ds: 'D12-D14', dsName: 'D12–D14 - MarCO & Khắc Thư Vũ Trụ', name: 'Parker Solar Probe', desc: 'Tàu thăm dò chạm vào nhật hoa Mặt Trời, mang theo vi mạch chứa tên hàng triệu người yêu thiên văn.' },
+      { id: 'c87', code: '#87', ch: 5, ds: 'D12-D14', dsName: 'D12–D14 - MarCO & Khắc Thư Vũ Trụ', name: 'Juno', desc: 'Tàu quỹ đạo Sao Mộc mang theo ba bức tượng nhôm Lego (Galileo, thần Jupiter và Juno) khám phá khí quyển hành tinh khí khổng lồ.' },
+      { id: 'c88', code: '#88', ch: 5, ds: 'D12-D14', dsName: 'D12–D14 - MarCO & Khắc Thư Vũ Trụ', name: 'Artemis', desc: 'Chương trình đưa con người trở lại Mặt Trăng, tiếp nối lời hứa của những robot mở đường như Surveyor 3.' },
+      { id: 'c89', code: '#89', ch: 5, ds: 'D12-D14', dsName: 'D12–D14 - MarCO & Khắc Thư Vũ Trụ', name: 'Pandora', desc: 'Sứ mệnh vệ tinh nhỏ nghiên cứu ánh sáng sao và bầu khí quyển của các hành tinh ngoại hệ.' },
+      { id: 'c90', code: '#90', ch: 5, ds: 'D12-D14', dsName: 'D12–D14 - MarCO & Khắc Thư Vũ Trụ', name: 'Eyes on the Solar System', desc: 'Nền tảng mô phỏng 3D thời gian thực của NASA giúp học sinh theo dõi vị trí các tàu vũ trụ trong Hệ Mặt Trời.' },
+    ];
+
+    // 2. 25 FEATURED CHARACTERS (5 per chapter)
+    const CHARACTERS = [
+      // Ch 1
+      { ch: 1, ds: 'D01', icon: '🦾', name: 'Surveyor 3', nick: '"Cậu Bé Đào Cát Mở Đường"', stat: 'Xẻng 1,5m • 6.326 ảnh • 10 psi', story: 'Robot ba chân đáp xuống Oceanus Procellarum ngày 20/04/1967, nảy hai lần như chú ếch nhỏ rồi dùng xẻng cào 4 rãnh đất chứng minh đất Mặt Trăng chịu tải 10 psi (0,7 kg/cm²).' },
+      { ch: 1, ds: 'D01', icon: '👨‍🚀', name: 'Hai bác phi hành gia Apollo 12', nick: 'Charles Conrad & Alan Bean (Intrepid)', stat: 'Hạ cánh cách Surveyor 3 chỉ 180m', story: 'Ngày 19/11/1969, hai bác điều khiển tàu Intrepid hạ cánh cách Surveyor 3 chỉ 180 mét và bước tới đón chiếc camera lẫn lưỡi xẻng của cậu trở về Trái Đất.' },
+      { ch: 1, ds: 'D01', icon: '🚙', name: 'Bác Xe Điện Bốn Bánh LRV', nick: 'Lunar Roving Vehicle • Bánh Lưới Thép', stat: 'Apollo 15, 16, 17', story: 'Với đôi bánh lưới thép đàn hồi, Bác Xe Điện LRV từng cần mẫn đưa đón các phi hành gia Apollo 15, 16, 17 rong ruổi qua các thung lũng đá trước khi đậu im lìm trên cát bụi.' },
+      { ch: 1, ds: 'D01', icon: '🪶', name: 'Bác Búa & Chị Lông Chim ưng', nick: 'Thí Nghiệm Rơi Tự Do Galileo', stat: 'Apollo 15 • Môi trường chân không', story: 'Nằm yên bên nhau trên Mặt Trăng sau màn biểu diễn rơi tự do nổi tiếng của Galileo trong môi trường chân không Apollo 15.' },
+      { ch: 1, ds: 'D01', icon: '🖼️', name: 'Bức Ảnh Gia Đình', nick: 'Kỷ Vật Của Phi Hành Gia Charles Duke', stat: 'Apollo 16 • Bọc túi nilon', story: 'Được phi hành gia Charles Duke bọc cẩn thận trong túi nilon ở Apollo 16, mang theo hơi ấm tình thân ở lại vĩnh viễn trên vầng trăng.' },
+      // Ch 2
+      { ch: 2, ds: 'D02', icon: '🛸', name: 'Viking 1', nick: '"Bác Sĩ Tí Hon Trầm Tư"', stat: '52.663 ảnh quỹ đạo • 4.500 ảnh mặt đất', story: 'Đặt chân xuống Chryse Planitia ngày 20/07/1976 với thân hình màu bạc và ba chiếc chân vững chãi, gửi về hàng chục ngàn bức ảnh và bản tin thời tiết mỗi ngày.' },
+      { ch: 2, ds: 'D02', icon: '🔬', name: 'Lò Nướng Tí Hon GCMS', nick: 'Máy Phổ Phân Tích Hữu Cơ', stat: 'Nung 4 mẫu đất • Độ nhạy 10–100 ppb', story: 'Nằm trong lồng ngực bác Viking 1, tỉ mỉ nung thử bốn mẫu đất với độ nhạy siêu tinh vi 10–100 ppb để tìm kiếm từng phân tử hữu cơ nhỏ bé nhất.' },
+      { ch: 2, ds: 'D03', icon: '⛺', name: 'Mars Pathfinder', nick: '"Chú Lật Đật Tưng Tưng"', stat: '04/07/1997 • Ares Vallis', story: 'Làm thung lũng Ares Vallis rộn ràng tiếng cười nhờ cú hạ cánh bật nảy ngoạn mục và mở cửa thả bé xe tự hành Sojourner.' },
+      { ch: 2, ds: 'D03', icon: '🫧', name: 'Áo Phao Túi Khí 5.8m', nick: 'Kén Bóng Trắng Muốt Bảo Vệ', stat: 'Tốc độ 14 m/s • Nảy 15 lần', story: 'Bọc kín Pathfinder khi lao xuống mặt đất ở tốc độ 14 m/s và bật nảy tưng tưng tận 15 lần như quả bóng bãi biển mà không hề trầy xước.' },
+      { ch: 2, ds: 'D03', icon: '🚜', name: 'Sojourner (mang Chiếc Kính Lúp APXS)', nick: '"Bé Xe Tự Hành Tò Mò"', stat: 'Nặng 10,6 kg • Cao 30 cm', story: 'Bé xe sáu bánh háo hức lăn bánh ra ngoài, dùng Chiếc Kính Lúp APXS tinh mắt soi vào những viên đá cuội tròn nhẵn chứng minh Sao Hỏa từng có dòng sông chảy xiết.' },
+      // Ch 3
+      { ch: 3, ds: 'D04', icon: '🤖', name: 'Spirit', nick: '"Người Anh Cả Kiên Cường"', stat: 'Hố Gusev • Vượt 7,7 km đá gập ghềnh', story: 'Bền bỉ vượt qua 7,7 km đá gập ghềnh ở hố Gusev; ngay cả khi một bánh xe bị thương vẫn cào nhẹ mặt đất đánh thức Nàng Silica Gusev.' },
+      { ch: 3, ds: 'D04', icon: '🏃', name: 'Opportunity', nick: '"Người Em Vận Động Viên Điền Kinh"', stat: '14 năm • Kỷ lục 45,16 km', story: 'Chạy bền bỉ suốt 14 năm tại Meridiani Planum lập kỷ lục di chuyển 45,16 km ngoài Trái Đất trước cơn bão bụi khổng lồ tháng 6/2018.' },
+      { ch: 3, ds: 'D04', icon: '💎', name: 'Nàng Silica Gusev', nick: 'Dấu Vết Suối Nước Nóng Cổ Đại', stat: 'Hố Gusev • Silica tinh khiết', story: 'Được bánh xe bị thương của Spirit vô tình cào nhẹ đánh thức, hé lộ bí mật về những suối nước nóng cổ đại từng phun trào ấm áp.' },
+      { ch: 3, ds: 'D04', icon: '🫐', name: "Bé Viên Sỏi 'Quả Việt Quất'", nick: 'Hạt Khoáng Hematit Tròn Xoe', stat: 'Meridiani Planum', story: 'Vô số viên sỏi hematit tròn xoe nằm dưới lòng đất được Opportunity tìm thấy như bằng chứng không thể chối cãi của đại dương ẩm ướt xưa.' },
+      { ch: 3, ds: 'D04', icon: '🌪️', name: 'Bé Chổi Bay Quỷ Bụi', nick: 'Những Cơn Lốc Sạc Lại Năng Lượng', stat: 'Quét sạch bụi trên cánh pin', story: 'Mỗi khi bụi đỏ bám dày làm đôi cánh pin mặt trời yếu đi, những Bé Chổi Bay Quỷ Bụi lại nhảy múa ngang qua thung lũng thổi sạch lớp bụi.' },
+      // Ch 4
+      { ch: 4, ds: 'D06', icon: '📜', name: 'Pioneer 10 (mang Bức Thư Mạ Vàng Plaque)', nick: 'Sứ Giả Vượt Không Gian Liên Sao', stat: '1972–2003 • 12,23 tỷ km → Aldebaran', story: 'Mang theo Bức Thư Mạ Vàng Plaque khắc hình con người Trái Đất vẫy tay cùng sơ đồ Hệ Mặt Trời hướng về chòm sao Aldebaran.' },
+      { ch: 4, ds: 'D07', icon: '🛰️', name: 'NEAR Shoemaker', nick: 'Cái Ôm Không Chân Đáp', stat: '12/02/2001 • Hạ cánh 6,4 km/h', story: 'Dù không có chân đáp vẫn nhẹ nhàng hạ thấp ở tốc độ êm ái 6,4 km/h để ôm lấy tiểu hành tinh 433 Eros và sưởi ấm suốt 2 tuần cuối.' },
+      { ch: 4, ds: 'D07', icon: '🥔', name: 'Cậu Bé Đá 433 Eros', nick: 'Tiểu Hành Tinh Hình Củ Khoai Tây', stat: 'Dài 33 km • Lạnh -173°C', story: 'Tiểu hành tinh hình củ khoai tây dài 33 km lạnh âm 173 độ C đón nhận cái ôm ấm áp cuối cùng của tàu NEAR Shoemaker.' },
+      { ch: 4, ds: 'D08', icon: '💠', name: 'Dawn (cùng Thần Ánh Sáng Ion Xenon)', nick: 'Nhà Du Hành Hai Thế Giới Cổ Xưa', stat: '2007 • Vesta & Hành tinh lùn Ceres', story: 'Nhờ luồng sáng xanh lam bền bỉ của Thần Ánh Sáng Ion Xenon, Dawn ghé thăm Vesta và Ceres rồi hóa thành vệ tinh im lìm bay quanh Ceres muôn đời.' },
+      { ch: 4, ds: 'D09', icon: '🔭', name: 'Kepler (Chú Mắt Nháy Transit)', nick: 'Người Tìm Hàng Ngàn Ngôi Nhà Trên Sao', stat: 'Gương 1,4m • 150.000 sao • >2.600 HT', story: 'Kiên nhẫn ngắm nhìn 150.000 ngôi sao, phát hiện hơn 2.600 hành tinh ngoại hệ mới (chứng minh 20–50% ngôi sao đều có hành tinh đá giống Trái Đất).' },
+      // Ch 5
+      { ch: 5, ds: 'D10', icon: '📡', name: 'InSight', nick: '"Bác Sĩ Áp Tai Lắng Nghe"', stat: '26/11/2018 • Elysium Planitia', story: 'Xòe đôi cánh pin tròn như hai chiếc quạt giấy, nằm im lặng tuyệt đối trên đồng bằng Elysium Planitia để lắng nghe nhịp tim Hành Tinh Đỏ.' },
+      { ch: 5, ds: 'D10', icon: '🔔', name: 'Chiếc Tai Vòm SEIS', nick: 'Địa Chấn Kế Nghe Marsquake', stat: 'Vẽ bản đồ trái tim Sao Hỏa', story: 'Được InSight nhẹ nhàng đặt xuống mặt đất, lắng nghe từng rung động Marsquake sâu trong lòng đất để vẽ nên bản đồ trái tim Sao Hỏa.' },
+      { ch: 5, ds: 'D12-D14', icon: '👯', name: 'Song Sinh CubeSat MarCO', nick: 'MarCO A & B (Wall-E & EVA)', stat: 'Truyền tin thời gian thực', story: 'Cặp vệ tinh tí hon dẫn đường truyền tin hạ cánh thời gian thực cho bác sĩ InSight trước khi trôi dạt im lìm ngoài không gian.' },
+      { ch: 5, ds: 'D11', icon: '🚁', name: 'Ingenuity', nick: '"Chú Chuồn Chuồn Nhỏ Bay Cao"', stat: '1,8 kg • Cánh 1,2m • 72 chuyến bay', story: 'Cất cánh giữa bầu khí quyển loãng chưa tới 1% Trái Đất, lập kỳ tích 72 chuyến bay lịch sử, vút cao 24m và bay xa 17km làm trinh sát dẫn đường.' },
+      { ch: 5, ds: 'D11', icon: '🧭', name: 'Anh Cả Perseverance', nick: 'Anh Cả Săn Dấu Sống Hố Jezero', stat: '2021 • Tìm hợp chất hữu cơ cổ đại', story: 'Dũng cảm lăn bánh trên hố Jezero đi tìm dấu vết hợp chất hữu cơ cổ đại và đồng hành cùng chú trực thăng tí hon Ingenuity.' },
+    ];
+
+    const CHAPTER_COLORS = {
+      1: '#fbbf24',
+      2: '#fb923c',
+      3: '#f59e0b',
+      4: '#38bdf8',
+      5: '#34d399'
+    };
+
+    // 3. RENDER CHAPTER CHARACTER CARDS & CONCEPT CHIPS WITH DATASET FILTERS
+    function initChapterModules() {
+      for (let ch = 1; ch <= 5; ch++) {
+        const accent = CHAPTER_COLORS[ch];
+
+        // A. Render 5 Characters
+        const charGrid = document.getElementById(`chars-ch${ch}`);
+        const chChars = CHARACTERS.filter(c => c.ch === ch);
+        chChars.forEach(char => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'text-left p-4 rounded-2xl cosmic-glass border border-slate-700/60 hover:border-amber-300/50 transition flex items-start gap-3.5 cursor-pointer group hover:-translate-y-1';
+          btn.innerHTML = `
+            <div class="w-11 h-11 rounded-xl bg-slate-900/90 border border-slate-700/80 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
+              ${char.icon}
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center justify-between gap-2">
+                <span class="font-serif text-lg font-bold text-white group-hover:text-amber-200 transition truncate">${char.name}</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] font-mono text-slate-300 shrink-0">${char.ds}</span>
+              </div>
+              <p class="text-xs text-slate-300/90 truncate mt-0.5">${char.nick}</p>
+              <p class="text-[11px] font-mono mt-1 truncate" style="color:${accent}">${char.stat}</p>
+            </div>
+          `;
+          btn.addEventListener('click', () => openCharacterModal(char));
+          charGrid.appendChild(btn);
+        });
+
+        // B. Render Dataset Filter Pills & All Concepts for Chapter
+        const chConcepts = CONCEPTS.filter(c => c.ch === ch);
+        const datasets = ['ALL', ...new Set(chConcepts.map(c => c.ds))];
+        const filterBox = document.getElementById(`filters-ch${ch}`);
+        const conceptBox = document.getElementById(`concepts-ch${ch}`);
+
+        function renderChips(selectedDs) {
+          conceptBox.innerHTML = '';
+          const list = selectedDs === 'ALL' ? chConcepts : chConcepts.filter(c => c.ds === selectedDs);
+          list.forEach(item => {
+            const hasInText = Boolean(document.querySelector(`.concept-hl[data-cid="${item.id}"]`));
+            const chip = document.createElement('button');
+            chip.type = 'button';
+            chip.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-amber-300/50 text-xs text-slate-200 transition cursor-pointer';
+            chip.innerHTML = `
+              <span class="font-mono font-bold text-[11px]" style="color:${accent}">${item.code}</span>
+              <span>${item.name}</span>
+              <span class="text-[10px] font-mono text-slate-400">(${item.ds})</span>
+              ${hasInText ? '<span title="Có highlight trong lời kể" class="text-[10px] text-amber-300">✦</span>' : ''}
+            `;
+            chip.addEventListener('click', () => {
+              updateInspector(item);
+              openConceptModal(item, hasInText);
+            });
+            conceptBox.appendChild(chip);
+          });
+        }
+
+        datasets.forEach(ds => {
+          const fBtn = document.createElement('button');
+          fBtn.type = 'button';
+          fBtn.textContent = ds === 'ALL' ? `Tất cả (${chConcepts.length})` : ds;
+          fBtn.className = ds === 'ALL'
+            ? 'px-2.5 py-1 rounded-full font-mono text-[11px] bg-amber-300 text-slate-950 font-bold cursor-pointer'
+            : 'px-2.5 py-1 rounded-full font-mono text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer';
+          fBtn.addEventListener('click', () => {
+            filterBox.querySelectorAll('button').forEach(b => {
+              b.className = 'px-2.5 py-1 rounded-full font-mono text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer';
+            });
+            fBtn.className = 'px-2.5 py-1 rounded-full font-mono text-[11px] bg-amber-300 text-slate-950 font-bold cursor-pointer';
+            renderChips(ds);
+          });
+          filterBox.appendChild(fBtn);
+        });
+
+        renderChips('ALL');
+      }
+    }
+
+    // 4. UPDATE CHAPTER LIVE CONCEPT INSPECTOR & BIND INLINE HIGHLIGHTS
+    function updateInspector(concept) {
+      const ch = concept.ch;
+      const badge = document.getElementById(`insp-badge-${ch}`);
+      const title = document.getElementById(`insp-title-${ch}`);
+      const desc = document.getElementById(`insp-desc-${ch}`);
+      const box = document.getElementById(`inspector-ch${ch}`);
+
+      if (badge && title && desc) {
+        badge.textContent = `${concept.code} • ${concept.ds}`;
+        title.textContent = concept.name;
+        desc.textContent = `${concept.desc} [Nguồn dữ liệu: ${concept.dsName}]`;
+        box.classList.add('concept-flash');
+        setTimeout(() => box.classList.remove('concept-flash'), 1200);
+      }
+
+      document.querySelectorAll('.concept-hl').forEach(el => el.classList.remove('is-active'));
+      const activeSpan = document.querySelector(`.concept-hl[data-cid="${concept.id}"]`);
+      if (activeSpan) activeSpan.classList.add('is-active');
+      playChime(587.33);
+    }
+
+    function bindInlineHighlights() {
+      document.querySelectorAll('.concept-hl').forEach(span => {
+        const cid = span.dataset.cid;
+        const concept = CONCEPTS.find(c => c.id === cid);
+        if (!concept) return;
+        span.title = `${concept.code} ${concept.name} (${concept.dsName}) — Bấm để xem chi tiết`;
+        span.addEventListener('click', () => {
+          updateInspector(concept);
+          openConceptModal(concept, false);
+        });
+      });
+    }
+
+    // 5. UNIVERSAL MODAL FOR CHARACTERS & CONCEPTS
+    const modal = document.getElementById('detailModal');
+    const modalCard = document.getElementById('modalCard');
+    const jumpBtn = document.getElementById('modalJumpBtn');
+
+    function showModal() {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      requestAnimationFrame(() => {
+        modalCard.classList.remove('scale-95', 'opacity-0');
+        modalCard.classList.add('scale-100', 'opacity-100');
+      });
+    }
+
+    function closeModal() {
+      modalCard.classList.add('scale-95', 'opacity-0');
+      modalCard.classList.remove('scale-100', 'opacity-100');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }, 200);
+    }
+
+    function openCharacterModal(char) {
+      const accent = CHAPTER_COLORS[char.ch];
+      document.getElementById('modalBadge1').textContent = `Chương ${char.ch} • Tuyến Nhân Vật`;
+      document.getElementById('modalBadge1').style.color = accent;
+      document.getElementById('modalBadge2').textContent = `Dữ liệu: ${char.ds}`;
+      document.getElementById('modalIcon').textContent = char.icon;
+      document.getElementById('modalTitle').textContent = char.name;
+      document.getElementById('modalSubtitle').textContent = char.nick;
+      document.getElementById('modalSubtitle').style.color = accent;
+      document.getElementById('modalMeta1Label').textContent = 'BỘ DỮ LIỆU NASA';
+      document.getElementById('modalMeta1Val').textContent = char.ds;
+      document.getElementById('modalMeta2Label').textContent = 'THÔNG SỐ SỨ MỆNH';
+      document.getElementById('modalMeta2Val').textContent = char.stat;
+      document.getElementById('modalBody').textContent = char.story;
+      jumpBtn.classList.add('hidden');
+      playChime(523.25);
+      showModal();
+    }
+
+    function openConceptModal(concept, showJump) {
+      const accent = CHAPTER_COLORS[concept.ch];
+      document.getElementById('modalBadge1').textContent = `Khái Niệm Khoa Học ${concept.code}/90`;
+      document.getElementById('modalBadge1').style.color = accent;
+      document.getElementById('modalBadge2').textContent = `Chương ${concept.ch}`;
+      document.getElementById('modalIcon').textContent = '🔬';
+      document.getElementById('modalTitle').textContent = concept.name;
+      document.getElementById('modalSubtitle').textContent = concept.dsName;
+      document.getElementById('modalSubtitle').style.color = accent;
+      document.getElementById('modalMeta1Label').textContent = 'MÃ KHÁI NIỆM';
+      document.getElementById('modalMeta1Val').textContent = `${concept.code} (Chương ${concept.ch})`;
+      document.getElementById('modalMeta2Label').textContent = 'BỘ DỮ LIỆU GỐC';
+      document.getElementById('modalMeta2Val').textContent = concept.ds;
+      document.getElementById('modalBody').textContent = concept.desc;
+
+      if (showJump) {
+        jumpBtn.classList.remove('hidden');
+        jumpBtn.onclick = () => {
+          closeModal();
+          const targetSpan = document.querySelector(`.concept-hl[data-cid="${concept.id}"]`);
+          if (targetSpan) {
+            targetSpan.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            targetSpan.classList.add('concept-flash');
+            setTimeout(() => targetSpan.classList.remove('concept-flash'), 2400);
+          }
+        };
+      } else {
+        jumpBtn.classList.add('hidden');
+      }
+      showModal();
+    }
+
+    document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+    document.getElementById('modalDoneBtn').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+
+    // 6. HIGHLIGHT MODE TOGGLE
+    const hlToggleBtn = document.getElementById('hlToggleBtn');
+    const hlStateText = document.getElementById('hlStateText');
+    const hlDot = document.getElementById('hlDot');
+    hlToggleBtn.addEventListener('click', () => {
+      const enabled = document.body.classList.toggle('hl-enabled');
+      hlToggleBtn.setAttribute('aria-pressed', String(enabled));
+      hlStateText.textContent = enabled ? 'BẬT' : 'TẮT';
+      hlDot.className = enabled ? 'w-2 h-2 rounded-full bg-amber-300' : 'w-2 h-2 rounded-full bg-slate-500';
+      playChime(enabled ? 659.25 : 440);
+    });
+
+    // 7. PARALLAX STARFIELD & SHOOTING STAR CANVAS
+    const canvas = document.getElementById('cosmosCanvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    let shootingStars = [];
+    let width = 0;
+    let height = 0;
+    let currentScrollY = 0;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      const starCount = Math.min(260, Math.floor((width * height) / 6000));
+      stars = Array.from({ length: starCount }, () => {
+        const layer = Math.ceil(Math.random() * 3); // 1 = far, 3 = near
+        return {
+          x: Math.random() * width,
+          baseY: Math.random() * height,
+          r: layer * 0.55 + 0.25,
+          layer,
+          alpha: 0.3 + layer * 0.2,
+          speed: 0.004 + layer * 0.004,
+          phase: Math.random() * Math.PI * 2,
+          tint: Math.random() > 0.82 ? '#fde68a' : (Math.random() > 0.7 ? '#bae6fd' : '#ffffff')
+        };
+      });
+    }
+
+    function spawnShootingStar(fromBottom = false) {
+      if (fromBottom) {
+        shootingStars.push({
+          x: width * (0.2 + Math.random() * 0.6),
+          y: height * 0.88,
+          vx: (Math.random() - 0.5) * 6,
+          vy: -(9 + Math.random() * 5),
+          life: 1,
+          decay: 0.015,
+          color: '#fde047'
+        });
+      } else {
+        shootingStars.push({
+          x: Math.random() * width * 0.8,
+          y: Math.random() * height * 0.35,
+          vx: 7 + Math.random() * 5,
+          vy: 3 + Math.random() * 3,
+          life: 1,
+          decay: 0.022,
+          color: '#e0f2fe'
+        });
+      }
+    }
+
+    function animateCosmos(time) {
+      ctx.clearRect(0, 0, width, height);
+
+      for (let i = 0; i < stars.length; i++) {
+        const s = stars[i];
+        const parallaxOffset = (currentScrollY * 0.04 * s.layer) % height;
+        let y = (s.baseY - parallaxOffset) % height;
+        if (y < 0) y += height;
+
+        const twinkle = 0.55 + 0.45 * Math.sin(time * s.speed + s.phase);
+        ctx.globalAlpha = s.alpha * twinkle;
+        ctx.fillStyle = s.tint;
+        ctx.beginPath();
+        ctx.arc(s.x, y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      if (Math.random() < 0.004 && shootingStars.length < 2) {
+        spawnShootingStar(false);
+      }
+
+      for (let i = shootingStars.length - 1; i >= 0; i--) {
+        const st = shootingStars[i];
+        st.x += st.vx;
+        st.y += st.vy;
+        st.life -= st.decay;
+        if (st.life <= 0) {
+          shootingStars.splice(i, 1);
+          continue;
+        }
+        const grad = ctx.createLinearGradient(st.x, st.y, st.x - st.vx * 8, st.y - st.vy * 8);
+        grad.addColorStop(0, st.color);
+        grad.addColorStop(1, 'transparent');
+        ctx.globalAlpha = st.life;
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 2.2;
+        ctx.beginPath();
+        ctx.moveTo(st.x, st.y);
+        ctx.lineTo(st.x - st.vx * 8, st.y - st.vy * 8);
+        ctx.stroke();
+      }
+
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(animateCosmos);
+    }
+
+    // 8. SCROLL PROGRESS, REVEAL & AMBIENT AURA
+    const chapterAuras = {
+      'hero': 'radial-gradient(circle at 50% 25%, rgba(251, 191, 36, 0.11), transparent 55%)',
+      'chapter-1': 'radial-gradient(circle at 25% 35%, rgba(226, 232, 240, 0.09), transparent 50%), radial-gradient(circle at 80% 70%, rgba(251, 191, 36, 0.08), transparent 50%)',
+      'chapter-2': 'radial-gradient(circle at 25% 40%, rgba(249, 115, 22, 0.12), transparent 55%), radial-gradient(circle at 80% 70%, rgba(239, 68, 68, 0.07), transparent 50%)',
+      'chapter-3': 'radial-gradient(circle at 30% 40%, rgba(245, 158, 11, 0.12), transparent 55%), radial-gradient(circle at 75% 65%, rgba(220, 38, 38, 0.07), transparent 50%)',
+      'chapter-4': 'radial-gradient(circle at 25% 35%, rgba(56, 189, 248, 0.12), transparent 55%), radial-gradient(circle at 80% 70%, rgba(129, 140, 248, 0.09), transparent 50%)',
+      'chapter-5': 'radial-gradient(circle at 25% 40%, rgba(16, 185, 129, 0.12), transparent 55%), radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.09), transparent 50%)',
+      'matrix-overview': 'radial-gradient(circle at 50% 40%, rgba(168, 85, 247, 0.11), transparent 55%)',
+      'finale': 'radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.13), transparent 60%)'
+    };
+
+    function handleScroll() {
+      currentScrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (currentScrollY / docHeight) * 100 : 0;
+      document.getElementById('scrollProgress').style.width = `${progress}%`;
+
+      const ids = ['hero', 'chapter-1', 'chapter-2', 'chapter-3', 'chapter-4', 'chapter-5', 'matrix-overview', 'finale'];
+      let activeId = 'hero';
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && currentScrollY >= el.offsetTop - window.innerHeight * 0.42) {
+          activeId = id;
+        }
+      }
+      document.getElementById('ambientAura').style.background = chapterAuras[activeId] || chapterAuras.hero;
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.dataset.target === activeId) {
+          link.classList.add('bg-white/15', 'text-amber-200');
+        } else {
+          link.classList.remove('bg-white/15', 'text-amber-200');
+        }
+      });
+    }
+
+    function initScrollReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal-block').forEach(el => observer.observe(el));
+    }
+
+    // 9. WEB AUDIO API COSMIC AMBIENT PAD & CHIMES
+    let audioCtx = null;
+    let isAudioPlaying = false;
+    let masterGain = null;
+
+    function toggleCosmicAudio() {
+      const btnLabel = document.getElementById('audioLabel');
+      const iconOff = document.getElementById('audioIconOff');
+      const iconOn = document.getElementById('audioIconOn');
+
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+        masterGain = audioCtx.createGain();
+        masterGain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+        masterGain.connect(audioCtx.destination);
+
+        [130.81, 196.00, 293.66].forEach((f, i) => {
+          const osc = audioCtx.createOscillator();
+          const filter = audioCtx.createBiquadFilter();
+          const oscGain = audioCtx.createGain();
+          osc.type = i === 0 ? 'sine' : 'triangle';
+          osc.frequency.setValueAtTime(f, audioCtx.currentTime);
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(420, audioCtx.currentTime);
+          oscGain.gain.setValueAtTime(i === 0 ? 0.16 : 0.06, audioCtx.currentTime);
+          osc.connect(filter);
+          filter.connect(oscGain);
+          oscGain.connect(masterGain);
+          osc.start();
+        });
+      }
+
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+
+      isAudioPlaying = !isAudioPlaying;
+      if (isAudioPlaying) {
+        masterGain.gain.exponentialRampToValueAtTime(0.22, audioCtx.currentTime + 1.0);
+        btnLabel.textContent = 'Đang Phát';
+        iconOff.classList.add('hidden');
+        iconOn.classList.remove('hidden');
+      } else {
+        masterGain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.7);
+        btnLabel.textContent = 'Âm Thanh Vũ Trụ';
+        iconOff.classList.remove('hidden');
+        iconOn.classList.add('hidden');
+      }
+    }
+
+    function playChime(freq = 587.33) {
+      if (!audioCtx || !isAudioPlaying) return;
+      try {
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(0.08, now + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.3);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 1.35);
+      } catch (e) {}
+    }
+
+    document.getElementById('audioToggleBtn').addEventListener('click', toggleCosmicAudio);
+
+    // 10. FINALE SIGNAL BUTTON
+    document.getElementById('sendSignalBtn').addEventListener('click', () => {
+      for (let i = 0; i < 7; i++) {
+        setTimeout(() => spawnShootingStar(true), i * 150);
+      }
+      playChime(523.25);
+      setTimeout(() => playChime(659.25), 160);
+      setTimeout(() => playChime(783.99), 320);
+      setTimeout(() => playChime(1046.50), 480);
+
+      const toast = document.getElementById('signalToast');
+      toast.classList.remove('opacity-0');
+      toast.classList.add('opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0');
+      }, 4500);
+    });
+
+    // BOOTSTRAP
+    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.onload = function () {
+      resizeCanvas();
+      initChapterModules();
+      bindInlineHighlights();
+      initScrollReveal();
+      handleScroll();
+      requestAnimationFrame(animateCosmos);
+    };
+  </script>
+</body>
+</html>
